@@ -15,12 +15,16 @@ import pathlib
 TEMPLATE_PATH = "templates/zensical"
 TEMPLATE_DEST = "share/jupyter/nbconvert/templates/zensical"
 
-def copy_template(current_dir):
+def copy_template(current_dir, force=True):
 
     template_path = pathlib.Path(current_dir) / TEMPLATE_PATH
 
     # Destination path folder
     dest = pathlib.Path(sys.prefix) / TEMPLATE_DEST
+
+    if not force and dest.exists():
+        print("Skipping, existing template detected.")
+        return
 
     shutil.copytree(template_path, dest, dirs_exist_ok=True)
     print(f"Copied template folder {template_path} to {dest}")
@@ -100,8 +104,6 @@ def convert_notebooks(
             str(output_dir),
             str(nb_path),
         ]
-
-        print(args)
 
         try:
             subprocess.run(

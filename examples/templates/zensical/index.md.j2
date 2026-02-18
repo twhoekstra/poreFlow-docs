@@ -3,13 +3,13 @@
 
 {% block stream scoped %}
 ``` title="Output"
-{{ output.text | indent(4) }}
+{{ output.text }}
 ```
 {% endblock stream %}
 
 {% block data_text scoped %}
 ``` title="Output"
-{{ output.data['text/plain'] | indent(4) }}
+{{ output.data['text/plain']}}
 ```
 {% endblock data_text %}
 
