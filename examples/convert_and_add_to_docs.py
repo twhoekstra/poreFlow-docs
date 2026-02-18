@@ -12,22 +12,18 @@ import re
 import pathlib
 
 
-TEMPLATE_PATH = "mkdocs.tpl"
-TEMPLATE_DEST = "share/jupyter/nbconvert/templates"
+TEMPLATE_PATH = "templates/zensical"
+TEMPLATE_DEST = "share/jupyter/nbconvert/templates/zensical"
 
 def copy_template(current_dir):
 
-    dest = pathlib.Path(sys.prefix) / TEMPLATE_DEST
     template_path = pathlib.Path(current_dir) / TEMPLATE_PATH
 
-    if (dest / TEMPLATE_PATH).exists():
-        return
+    # Destination path folder
+    dest = pathlib.Path(sys.prefix) / TEMPLATE_DEST
 
-    dest.mkdir(parents=True, exist_ok=True)
-
-    shutil.copyfile(template_path, dest)
-
-    print(f"Copied template {template_path} to {dest}")
+    shutil.copytree(template_path, dest, dirs_exist_ok=True)
+    print(f"Copied template folder {template_path} to {dest}")
 
 
 def sanitize_filename(name: str) -> str:
@@ -52,13 +48,14 @@ def sanitize_filename(name: str) -> str:
 
 
 def convert_notebooks(
-    examples_dir: pathlib.Path, output_dir: pathlib.Path
+    examples_dir: pathlib.Path, output_dir: pathlib.Path, zensical_template: bool = True,
 ) -> list[tuple[str, str]]:
     """Converts all notebooks in examples_dir to Markdown in output_dir.
 
     Args:
         examples_dir: Directory containing .ipynb files.
         output_dir: Directory where .md files will be saved.
+        zensical_template: If True, converts .ipynb to Markdown with a custom template.
 
     Returns:
         List of tuples (original_title, sanitized_filename).
@@ -79,21 +76,30 @@ def convert_notebooks(
         sanitized_name = sanitize_filename(original_title)
         output_filename = f"{sanitized_name}.md"
 
-        print(f"  Converting '{original_title}' -> '{output_filename}'...")
+        print(f"  Converting '{original_title}' -> '{output_filename}'...", end="")
+
+        args = [
+        "jupyter",
+        "nbconvert",
+        "--to",
+        "markdown",
+        "--output",
+        sanitized_name,
+        "--output-dir",
+        str(output_dir),
+        str(nb_path),
+        ]
+
+        if zensical_template:
+            template_name = pathlib.Path(TEMPLATE_PATH).stem
+            print(f" (Using custom template '{template_name}')")
+            args += ["--template", template_name]
+        else:
+            print(" (Using default template)") # Add newline for print
 
         try:
             subprocess.run(
-                [
-                    "jupyter",
-                    "nbconvert",
-                    "--to",
-                    "markdown",
-                    "--output",
-                    sanitized_name,
-                    "--output-dir",
-                    str(output_dir),
-                    str(nb_path),
-                ],
+                args,
                 check=True,
                 capture_output=True,
                 text=True,
@@ -107,8 +113,8 @@ def convert_notebooks(
     return converted_info
 
 
-def print_mkdocs_snippet(converted_info: list[tuple[str, str]]):
-    """Prints the navigation snippet for mkdocs.yml.
+def print_zensical_toml_snippet(converted_info: list[tuple[str, str]]):
+    """Prints the navigation snippet for zensical.toml.
 
     Args:
         converted_info: List of tuples (original_title, sanitized_filename).
@@ -117,12 +123,13 @@ def print_mkdocs_snippet(converted_info: list[tuple[str, str]]):
         return
 
     print("\n" + "=" * 40)
-    print("Add the following to your mkdocs.yml 'nav' section:")
+    print("Add the following to your zensical.toml 'nav' section:")
     print("=" * 40)
-    print("  - Examples:")
+    print("nav = [")
     for title, filename in converted_info:
         # Simple cleanup of title for the nav
-        print(f"    - '{title}': 'examples/{filename}'")
+        print(f'\t"examples/{filename}",')
+    print("]")
     print("=" * 40 + "\n")
 
 
@@ -131,7 +138,7 @@ def main():
 
     current_dir = pathlib.Path(__file__).parent.resolve()
 
-    # copy_template(current_dir)
+    copy_template(current_dir)
     project_root = current_dir.parent
 
     examples_dir = current_dir
@@ -146,7 +153,7 @@ def main():
 
     # 2. Print the mkdocs.yml snippet
     if converted_info:
-        print_mkdocs_snippet(converted_info)
+        print_zensical_toml_snippet(converted_info)
     else:
         print("No files were converted.")
 
