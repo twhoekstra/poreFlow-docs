@@ -83,11 +83,6 @@ def convert_notebooks(
         "nbconvert",
         "--to",
         "markdown",
-        "--output",
-        sanitized_name,
-        "--output-dir",
-        str(output_dir),
-        str(nb_path),
         ]
 
         if zensical_template:
@@ -96,6 +91,17 @@ def convert_notebooks(
             args += ["--template", template_name]
         else:
             print(" (Using default template)") # Add newline for print
+
+
+        args += [
+            "--output",
+            sanitized_name,
+            "--output-dir",
+            str(output_dir),
+            str(nb_path),
+        ]
+
+        print(args)
 
         try:
             subprocess.run(
@@ -133,12 +139,13 @@ def print_zensical_toml_snippet(converted_info: list[tuple[str, str]]):
     print("=" * 40 + "\n")
 
 
-def main():
+def main(zensical_template: bool = True):
     """Main execution function."""
 
     current_dir = pathlib.Path(__file__).parent.resolve()
 
-    copy_template(current_dir)
+    if zensical_template:
+        copy_template(current_dir)
     project_root = current_dir.parent
 
     examples_dir = current_dir
@@ -149,7 +156,7 @@ def main():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # 1. Convert notebooks to Markdown
-    converted_info = convert_notebooks(examples_dir, output_dir)
+    converted_info = convert_notebooks(examples_dir, output_dir, zensical_template)
 
     # 2. Print the mkdocs.yml snippet
     if converted_info:

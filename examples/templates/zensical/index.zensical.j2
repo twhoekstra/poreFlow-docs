@@ -1,4 +1,23 @@
 {% extends 'markdown/index.md.j2' %}
 
-{% block markdowncell %}
-{% endblock markdowncell %}
+{% block input %}
+{% endblock input %}
+
+
+{% block stream scoped %}
+``` title="Output"
+{{ output.text | indent(4) }}
+```
+{% endblock stream %}
+
+{% block data_text scoped %}
+``` title="Output"
+{{ output.data['text/plain'] | indent(4) }}
+```
+{% endblock data_text %}
+
+{% block data_markdown scoped %}
+``` title="Output"
+{{ output.data['text/markdown'] }}
+```
+{% endblock data_markdown %}
