@@ -88,7 +88,8 @@ packages used in a project from the overall Python installation.
 
 [Activate-venv]: #activating-the-virtual-environment
 
-```shell linenums="1" title="Creating a virtual environment"
+```shell linenums="1" title="Initializing a project and creating a virtual environment"
+uv init
 uv venv
 ```
 
@@ -117,10 +118,15 @@ To activate the virtual environment:
 
 ## Installing poreFlow
 
-Poreflow can now be installed stand-alone using ``pip``
+Poreflow can now be installed stand-alone using ``uv``
 ```shell linenums="3" title="Installing poreFlow"
-uv pip install poreflow
+uv add poreflow
 ```
+
+!!! warning "WIP"
+
+    poreFlow is not released on PyPi yet. Before this release, 
+    install using the Developer install. Release coming soon!
 
 
 ## Developer install

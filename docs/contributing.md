@@ -44,25 +44,28 @@ to create a virtual environment, check out the
 
 ### Install dependencies and module
 
-Install dependencies and module by installing the module in editable mode. Make sure you working directory is set 
-to `poreFlow` before running:
 
-```shell
-uv pip install -e ".[dev]"
+
+PoreFlow and its dependencies can also be installed using the
+[lockfile](https://docs.astral.sh/uv/concepts/projects/layout/#the-lockfile) provided in this repository. 
+To install, simply run:
+```shell 
+  uv sync
 ```
+
+Make sure you working directory is set to `poreFlow` before running.
 
 !!! info
 
     Installing with the additional dependencies ``dev`` will install packages needed for building this documentation, 
     testing the code, and formatting, along with Jupyter Notebook.
 
-??? info "Installing with ``uv sync`` instead"
+??? info "Installing with ``pip`` instead"
+    You can also install dependencies and the module by installing the module in editable mode 
+    using `pip`.
 
-    PoreFlow and its dependencies can also be installed using the
-    [lockfile](https://docs.astral.sh/uv/concepts/projects/layout/#the-lockfile) provided in this repository. 
-    To install, simply run 
-    ```shell 
-      uv sync
+    ```shell
+    uv pip install -e ".[dev]"
     ```
 
 ### Installing `fast5-research` in editable mode (not recommended)
