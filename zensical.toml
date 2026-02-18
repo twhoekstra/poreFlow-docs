@@ -17,6 +17,9 @@ nav = [
         {"Input/Output" = [
             "examples/loading-ont-data.md",
             "examples/loading-utube-data.md",
+        ]},
+        {"Event detection and filtering" = [
+            "examples/full-ont-processing.md",
         ]}
     ]},
     {"Reference" = "reference/poreflow.md"},
