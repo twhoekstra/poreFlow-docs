@@ -4,22 +4,20 @@ on:
   push:
     branches:
       - main
-  pull_request:
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+
 jobs:
   build:
     if: github.actor == 'twhoekstra'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: 'pip'
@@ -33,21 +31,22 @@ jobs:
         run: python examples/convert_and_add_to_docs.py
 
       - name: Build documentation
-        run: zensical build
+        run: zensical build --clean
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
-          path: site/
+          path: site
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.actor == 'twhoekstra'
     needs: build
-    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
     steps:
+      - uses: actions/configure-pages@v5
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: actions/deploy-pages@v4
+        id: deployment
