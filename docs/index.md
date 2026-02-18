@@ -39,11 +39,11 @@ intended for use for research in the Cees Dekker lab.
 
 </div>
 
-[getting started]: ../getting-started/installation.md
+[getting started]: ./getting-started/installation.md
 [authoring]: markdown.md
 [reference]: reference.md
 [tools]: tools.md
-[customization]: ../customization.md
-[examples]: ../examples/loading-ont-data.md
+[customization]: ./customization.md
+[examples]: ./examples/loading-ont-data.md
 [GitLab]: https://gitlab.tudelft.nl/xiuqichen/poreFlow/
 

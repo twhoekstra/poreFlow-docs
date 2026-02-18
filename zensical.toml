@@ -1,6 +1,6 @@
 [project]
 site_name = "poreFlow Documentation"
-site_url = "https://ceesdekkerlab.nl/notimplemented"
+site_url = "https://twhoekstra.github.io/poreFlow-docs/"
 site_description = "Documentation for the poreFlow Python Package"
 site_author = "Thijn Hoekstra"
 copyright = "&copy; 2026 Cees Dekker Lab"
