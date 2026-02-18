@@ -1,39 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/getting-started/installation/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/getting-started/installation/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/getting-started/introduction/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/getting-started/introduction/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/getting-started/the-typical-poreflow-workflow/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/getting-started/the-typical-poreflow-workflow/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/examples/loading-ont-data/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/examples/loading-ont-data/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/examples/loading-utube-data/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/examples/loading-utube-data/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/reference/poreflow/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/reference/poreflow/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/implementation-details/wishlist/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/implementation-details/wishlist/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/implementation-details/fast5-update/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/implementation-details/fast5-update/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/implementation-details/labview-to-fast5-conversion/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/implementation-details/labview-to-fast5-conversion/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/contributing/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/contributing/</loc>
       </url>
       <url>
-        <loc>https://ceesdekkerlab.nl/notimplemented/authors/</loc>
+        <loc>https://twhoekstra.github.io/poreFlow-docs/authors/</loc>
       </url>
 </urlset>
