@@ -1,0 +1,3 @@
+[submodule "poreFlow"]
+	path = poreFlow
+	url = https://gitlab.tudelft.nl/xiuqichen/poreFlow.git
