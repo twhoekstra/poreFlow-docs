@@ -1,10 +1,11 @@
 # Core poreFlow API
 
-## `poreflow.File`
 ::: poreflow.File
-   handler: python
     options:
-      members:
-        - tracking_meta
-      show_root_heading: false
-      show_source: false
+        show_root_heading: true
+        heading_level: 2
+
+::: poreflow.RawDataFrame
+    options:
+        show_root_heading: true
+        heading_level: 2

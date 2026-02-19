@@ -11,7 +11,8 @@ nav = [
     {"Getting Started" = [
         "getting-started/installation.md",
         "getting-started/introduction.md",
-        "getting-started/the-typical-poreflow-workflow.md",
+        "getting-started/overview.md",
+        "getting-started/typical-workflow.md",
     ]},
     {"Examples" =  [
         {"Input/Output" = [
@@ -36,6 +37,14 @@ extra_javascript = [
   "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js",
 ]
 
+[project.plugins.mkdocstrings.handlers.python]
+inventories = ["https://docs.python.org/3/objects.inv"]
+paths = ["poreflow/src"]
+
+[project.plugins.mkdocstrings.handlers.python.options]
+docstring_style = "google"
+inherited_members = true
+show_source = false
 
 
 
