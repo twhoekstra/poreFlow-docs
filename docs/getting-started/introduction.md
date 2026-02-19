@@ -1,10 +1,62 @@
-# Introduction to poreFlow
+# Introduction
 
-poreFlow is a Python package designed for the analysis of nanopore sequencing data, specifically tailored for handling data from both Oxford Nanopore Technologies (ONT) MinION and custom utube device in the Cees Dekker lab setups. It provides a formalized data structure inspired by MNE, modular processing functions, and interactive GUIs for event viewing and manual segmentation.
+poreFlow is a Python package designed for the analysis of nanopore sequencing data, 
+specifically tailored for handling data from both Oxford Nanopore Technologies (ONT) MinION 
+and custom UTube device in the Cees Dekker lab setups. 
 
-## The Core API
+poreFlow provides tools in two categories:
 
-The core of poreFlow is built on top of `pandas.DataFrame`, extending it with metadata and methods specific to nanopore signal analysis.
+<div class="grid cards" markdown>
+
+-   :material-language-python:{ .lg .middle } __Python Module__
+
+    ---
+
+    A Python module that can be used in scripts, notebooks, 
+    and more
+
+    [:octicons-arrow-right-24: Learn more][python section]
+
+-    :lucide-monitor:{ .lg .middle } __Graphical Tools__
+
+    ---
+
+    Built-in GUIs that help analyse and edit Nanopore reads
+
+    [:octicons-arrow-right-24: Learn more][gui section]
+
+</div>
+
+[python section]: #python-module
+[gui section]: #graphical-tools
+
+
+## Python Module
+
+### Importing the module
+
+The easiest way to import poreFlow is using:
+```python linenums="1"
+import poreflow as pf
+```
+
+### Data Structures
+
+The poreFlow module provides data structures to manage nanopore data, built on top of 
+[`pandas.DataFrame`][dataframe], extending it with metadata and methods specific to nanopore signal analysis.
+
+```doctest linenums="2"
+pf.
+```
+
+[dataframe]: https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.html#pandas.DataFrame
+
+The poreFlow Python module provides three core groups of tools:
+
+1. Data structures to manage nanopore data 
+2. Input/output tools to quickly read/write nanopore data from files
+3. Functions to quickly run algorithms/processing steps on nanopore data
+
 
 ### Raw Data Handling
 
@@ -112,3 +164,9 @@ A typical poreFlow workflow involves:
 4. **Feature Extraction**: Extract metrics like mean current, dwell time, or use changepoint detection.
 5. **Classification**: Predict sequences or classify events based on extracted features.
 6. **Curation**: Use the Dashboard to manually verify and label events.
+
+
+## Graphical Tools
+
+
+

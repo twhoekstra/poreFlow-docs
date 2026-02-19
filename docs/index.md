@@ -3,9 +3,11 @@
 PoreFlow is a fast, simple, and flexible set of tools for analysing raw nanopore sequencing data, 
 intended for use for research in the Cees Dekker lab. 
 
+## Quick links
+
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
+-   :lucide-download:{ .lg .middle } __Install__
 
     ---
 
@@ -13,33 +15,35 @@ intended for use for research in the Cees Dekker lab.
 
     [:octicons-arrow-right-24: Getting started][getting started]
 
--   :lucide-panda:{ .lg .middle } __Pandas-based API__
+-   :lucide-telescope:{ .lg .middle } __Introduction__
 
     ---
 
-    Easy data operations using extensions of the Pandas DataFrame    
+    View an overview of all the features of poreFLow
+
+    [:octicons-arrow-right-24: Introduction][introduction]
+
+-   :lucide-book-open:{ .lg .middle } __Reference__
+
+    ---
+
+    Read the reference documentation of the poreFlow module
 
     [:octicons-arrow-right-24: Reference][reference]
 
--   :lucide-monitor:{ .lg .middle } __Graphical Tools__
 
-    ---
-
-    Built-in GUIs that help analyse and edit Nanopore reads
-
-    [:octicons-arrow-right-24: Tools][tools]
-
--   :lucide-pocket-knife:{ .lg .middle } __Multi-use__
+-   :lucide-pocket-knife:{ .lg .middle } __Examples__
 
     ---
     
-    poreFlow is built for both ONT and UTube data
+    See examples of how to use poreFlow for your usecase
 
     [:octicons-arrow-right-24: Examples][examples]
 
 </div>
 
 [getting started]: ./getting-started/installation.md
+[introduction]: ./getting-started/introduction.md
 [authoring]: markdown.md
 [reference]: reference.md
 [tools]: tools.md

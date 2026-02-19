@@ -1,6 +1,12 @@
-## Overview
+## A typical nanopore sequencing workflow
 
-This section describes the typical poreFlow workflow 
+```mermaid
+graph LR
+    A[Measurement] -->|Preprocessing| B[Refined measurement]
+    B -->|Event finding| C[Events]
+```
+
+## poreFlow
 
 ```mermaid
 graph TD;
