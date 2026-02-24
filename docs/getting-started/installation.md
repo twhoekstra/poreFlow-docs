@@ -1,6 +1,6 @@
 
 
-poreFlow is written in Python and C++, and is published as a [Python package] (WIP).
+poreFlow is written in Python and C++, and is published as a [Python package].
 We recommend to use a Python _virtual environment_ when installing [with
 `pip`][with-pip] or [with `uv`][with-uv]. Both options automatically install all
 necessary dependencies alongside Zensical.
@@ -125,8 +125,9 @@ uv add poreflow
 
 !!! warning "WIP"
 
-    poreFlow is not released on PyPi yet. Before this release, 
-    install using the Developer install. Release coming soon!
+    poreFlow has been released on PyPi, but only for MacOS users. 
+
+    For Windows users, install using the Developer install. Release coming soon!
 
 
 ## Developer install
@@ -143,4 +144,4 @@ using the instructions on the [Contributing page][poreflow-dev-install].
 [uv]: https://docs.astral.sh/uv/
 [uv-install]: https://github.com/astral-sh/uv?tab=readme-ov-file#installation
 [Using Python's pip to Manage Your Projects' Dependencies]: https://realpython.com/what-is-pip/
-[poreflow-dev-install]: ../contributing/#installation-from-source
+[poreflow-dev-install]: ../developers/installation/#installation-from-source

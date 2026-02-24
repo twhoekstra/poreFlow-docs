@@ -29,7 +29,14 @@ nav = [
         "implementation-details/fast5-update.md",
         "implementation-details/labview-to-fast5-conversion.md",
     ]},
-    {"Contributing" = "contributing.md"},
+    {"Developers" = [
+        "developers/introduction.md",
+        "developers/installation.md",
+        "developers/style-guide.md",
+        "developers/ci-cd.md",
+        "developers/building.md",
+        "developers/publishing.md",
+    ]},
     {"Authors" = "authors.md"}
 ]
 extra_javascript = [
