@@ -9,6 +9,11 @@ Below, you'll find instructions to install poreFlow on your personal computer.
 
 ## Prerequisites
 
+### Operating system
+
+poreFlow is officially supported for macOS Tahoe 26 and Windows 11. For these operating 
+systems, there are pre-built [binary distributions][wheels] of poreFlow wheels
+
 ### Python
 To install poreFlow you will need Python installed. If you do not have Python on your computer, 
 we recommend you follow the [Python Setup and Usage] instructions for your operating system provided on the
@@ -129,7 +134,6 @@ uv add poreflow
 
     For Windows users, install using the Developer install. Release coming soon!
 
-
 ## Developer install
 
 If you want to develop, extend, or modify poreFlow, install as a developer 
@@ -145,3 +149,4 @@ using the instructions on the [Contributing page][poreflow-dev-install].
 [uv-install]: https://github.com/astral-sh/uv?tab=readme-ov-file#installation
 [Using Python's pip to Manage Your Projects' Dependencies]: https://realpython.com/what-is-pip/
 [poreflow-dev-install]: ../developers/installation/#installation-from-source
+[wheels]: https://packaging.python.org/en/latest/specifications/binary-distribution-format/
