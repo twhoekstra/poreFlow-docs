@@ -102,8 +102,8 @@ packages used in a project from the overall Python installation.
 [Activate-venv]: #activating-the-virtual-environment
 
 ```shell linenums="1" title="Initializing a project and creating a virtual environment"
-uv init
-uv venv --python 3.11
+uv init --python 3.11
+uv venv 
 ```
 
 !!! warning "WIP, supported Python versions"

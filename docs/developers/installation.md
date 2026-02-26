@@ -32,6 +32,30 @@ cd poreFlow
 
 ## Install dependencies and module
 
+Creating and activating a virtual environment:
+
+=== ":material-apple: macOS"
+
+    ``` linenums="3"
+    uv venv --python 3.11
+    source .venv/bin/activate
+    ```
+
+=== ":fontawesome-brands-windows: Windows"
+
+    ``` linenums="3"
+    uv venv --python 3.11
+    .venv\Scripts\activate
+    ```
+
+=== ":material-linux: Linux"
+
+    ``` linenums="3"
+    uv venv --python 3.11
+    source .venv/bin/activate
+    ```
+
+
 To install, simply run:
 ```shell linenums="3"
   uv sync
@@ -39,7 +63,6 @@ To install, simply run:
 
 This, by default makes use of the [lockfile](https://docs.astral.sh/uv/concepts/projects/layout/#the-lockfile) provided 
 in this repository, ensuring you install the same packages as the main developers.
-
 
 
 !!! tip 
