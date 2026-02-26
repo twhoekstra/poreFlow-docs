@@ -14,12 +14,20 @@ Below, you'll find instructions to install poreFlow on your personal computer.
 poreFlow is officially supported for macOS Tahoe 26 and Windows 11. For these operating 
 systems, there are pre-built [binary distributions][wheels] of poreFlow wheels
 
+??? note "I have a different OS/version"
+    If you are using another OS version, don't worry, you can use poreFlow too.
+    Instead of using the pre-built binary, you can build from source. 
+    For MacOS, just follow the instructions below. If you are using Windows 10, 
+    or Windows on an ARM machine, check out the [Developer Install][poreflow-dev-install]
+
 ### Python
 To install poreFlow you will need Python installed. If you do not have Python on your computer, 
 we recommend you follow the [Python Setup and Usage] instructions for your operating system provided on the
 [Python website]. Here, follow the instructions for just installing Python.
 
 ??? warning "If you are using Anaconda/Miniconda"
+
+    ...Dont? No just kidding.
 
     If you already have Anaconda/Miniconda installed on your system, 
     Python is already available on your computer. You can skip this step. 
@@ -95,8 +103,15 @@ packages used in a project from the overall Python installation.
 
 ```shell linenums="1" title="Initializing a project and creating a virtual environment"
 uv init
-uv venv
+uv venv --python 3.11
 ```
+
+!!! warning "WIP, supported Python versions"
+
+    poreFlow has been released on PyPi, but for now we are only 
+    creating pre-built binaries for Python 3.11. 
+    Versions for python 3.11+ coming soon!
+
 
 ## Activating the virtual environment
 
@@ -127,12 +142,6 @@ Poreflow can now be installed stand-alone using ``uv``
 ```shell linenums="3" title="Installing poreFlow"
 uv add poreflow
 ```
-
-!!! warning "WIP"
-
-    poreFlow has been released on PyPi, but only for MacOS users. 
-
-    For Windows users, install using the Developer install. Release coming soon!
 
 ## Developer install
 

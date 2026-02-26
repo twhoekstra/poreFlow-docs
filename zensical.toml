@@ -23,7 +23,11 @@ nav = [
             "examples/full-ont-processing.md",
         ]}
     ]},
-    {"Reference" = "reference/poreflow.md"},
+    {"Reference" = [
+        "reference/poreflow.md",
+        "reference/events.md",
+        "reference/steps.md",
+    ]},
      {"Implementation Details" = [
         "implementation-details/wishlist.md",
         "implementation-details/fast5-update.md",
