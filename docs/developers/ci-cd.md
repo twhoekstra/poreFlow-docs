@@ -3,60 +3,63 @@
 poreFlow uses Continuous Integration/Continuous Deployment (CI/CD) to automate 
 package testing, building, and packaging.
 
-## Windows runner:
+## Prerequisites
+- Docker. Which can be downloaded and installed [here][Docker Install].
 
-We are creating Windows runner with a shell executor. Pitfalls!
+## Create and configure the GitLab runners
 
-We use the Docker executor for Windows.
+The easiest way to set up the runners is using [Docker Compose]. Create the folder with the following files:
+```
+gitlab-runner
+ ├─  config
+ │     └─ config.toml
+ └─  compose.yaml
+```
 
-### Prerequistes
-- Git 
-- `uv` 
+`compose.yaml` contains the instructions for Docker and `config.toml` specifies the configuration of the GitLab 
+runners. The GitLab runner needs an authentication token, which can be created when 
+[registering a GitLab runner][GitLab Runner Register]. `config.toml` should look like:
 
-!!! note "On the install"
-    Use default installs for both git and `uv`. Both will install at the user level
+```toml title="config.toml" linenums="1"
+log_level = "warning"
+
+[[runners]]
+  name = "gitlab-runner-1"
+  url = "https://gitlab.tudelft.nl"
+  executor = "docker"
+  token = "paste-your-token-here"
+  limit = 0
+  [runners.docker]
+    tls_verify = false
+    image = "docker:latest"
+    privileged = true
+    disable_cache = false
+    pull_policy = "if-not-present"
+    helper_image = "registry.gitlab.com/gitlab-org/gitlab-runner/gitlab-runner-helper:alpine-edge-arm-1fd8d947"
+    volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+  [runners.cache]
+    Insecure = false
+```
+
+`compose.yaml` should look like:
+
+```yaml title="compose.yml" linenums="1"
+services:
+  gitlab-runner:
+    image: docker.io/gitlab/gitlab-runner:alpine3.21-bleeding
+    container_name: gitlab-runner-1
+    volumes:
+      - ./config/config.toml:/etc/gitlab-runner/config.toml:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
+```
 
 
-### Installing GitLab Runner for windows
-
-For more info, see the [GitLab docs reference][Windows runner reference].
-
-1. Create a folder somewhere in your system, for example, C:\GitLab-Runner.
-2. Download the binary for [64-bit][Runner download] and put it into the folder you created. 
-3. Rename the binary to `gitlab-runner.exe`
-4. Run an [elevated command prompt][Elevated command prompt]
-5. Run the register command:
-
+To start the runners, open a terminal in the folder containng `compose.yaml` and run:
 ```shell linenums="1"
-cd C:\GitLab-Runner
-.\gitlab-runner.exe register
+docker compose up -d
 ```
 
-6. Enter `gitlab.tudelft.nl` as the GitLab URL
-7. Get a runner authentication token from GitLab and enter it
-8. Enter the description for the runner.
-9. Enter the job tag `windows`
-10. As an executor, select "shell"
-
-This should create a `config.toml`. Make sure it looks like:
-
-```toml linenums="1"
-
-```
-
-11. Install and start the runner
-
-```shell linenums="3"
-.\gitlab-runner.exe install
-.\gitlab-runner.exe start
-```
-
-## Windows services
-
-Use run as administrator
-"gitlab-runner"
-
-[Windows runner reference]: https://docs.gitlab.com/runner/install/windows
-[Runner download]: https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-windows-amd64.exe
-[Elevated command prompt]: https://learn.microsoft.com/en-us/powershell/scripting/windows-powershell/starting-windows-powershell?view=powershell-7.4#with-administrative-privileges-run-as-administrator
-[MSVS docs]: https://learn.microsoft.com/en-us/visualstudio/install/build-tools-container?view=visualstudio
+[Docker Install]: https://docs.docker.com/get-started/get-docker/
+[Docker Compose]: https://docs.docker.com/compose/
+[GitLab Runner Register]: https://docs.gitlab.com/runner/register/
