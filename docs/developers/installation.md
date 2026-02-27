@@ -4,15 +4,13 @@
 
 The prerequisites are:
 
-1. A package manager
-2. A virtual environment to install packages into (recommended)
-3. Git
-4. Access to the poreFlow repository
-5. Visual Studio Build Tools (Windows only)
+1. Modern python package manager - [`uv`](https://docs.astral.sh/uv/)
+2. Git
+3. Access to the poreFlow repository
+4. Visual Studio Build Tools (Windows only)
 
-You can of course use any package manager you want, but `uv` is recommended thanks to its speed and built-in 
-formatting. For installation, follow the [official uv installation steps](https://github.com/astral-sh/uv?tab=readme-ov-file#installation). For instructions on how
-to create a virtual environment, check out the 
+`uv` is recommended thanks to its speed and built-in 
+formatting. For installation, follow the [official uv installation steps](https://github.com/astral-sh/uv?tab=readme-ov-file#installation). For instructions on how to create a virtual environment, check out the 
 [Installation](../getting-started/installation/#creating-a-virtual-environment) page.
 
 
