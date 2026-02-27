@@ -9,8 +9,8 @@ site_dir = "site"
 nav = [
     {"Home" = "index.md"},
     {"Getting Started" = [
-        "getting-started/installation.md",
         "getting-started/introduction.md",
+        "getting-started/installation.md",
         "getting-started/overview.md",
         "getting-started/typical-workflow.md",
     ]},
