@@ -1,9 +1,6 @@
 
 
-poreFlow is written in Python and C++, and is published as a [Python package].
-We recommend to use a Python _virtual environment_ when installing [with
-`pip`][with-pip] or [with `uv`][with-uv]. Both options automatically install all
-necessary dependencies alongside Zensical.
+[poreFlow][poreflow_code] is written in Python and C++, and is published as a [Python package]. We recommend to use a Python _virtual environment_ when installing [with `pip`][with-pip] or [with `uv`][with-uv]. Both options automatically install all necessary dependencies alongside Zensical.
 
 Below, you'll find instructions to install poreFlow on your personal computer.
 
@@ -11,14 +8,14 @@ Below, you'll find instructions to install poreFlow on your personal computer.
 
 ### Operating system
 
-poreFlow is officially supported for macOS Tahoe 26 and Windows 11. For these operating 
-systems, there are pre-built [binary distributions][wheels] of poreFlow wheels
+poreFlow is officially supported for macOS Tahoe 26 and Windows 11. For these operating systems, there are pre-built [binary distributions][wheels] of poreFlow wheels
 
 ??? note "I have a different OS/version"
-    If you are using another OS version, don't worry, you can use poreFlow too.
-    Instead of using the pre-built binary, you can build from source. 
-    For MacOS, just follow the instructions below. If you are using Windows 10, 
-    or Windows on an ARM machine, check out the [Developer Install][poreflow-dev-install]
+    If you are using another OS version, don't worry, you can use poreFlow too. Instead of using the pre-built binary, you can build from source.
+
+    - For MacOS, just follow the instructions below. 
+    - If you are using Windows 10, or Windows on an ARM machine, check out the [Developer Install][poreflow-dev-install]
+    - For general Linux distributions, install `uv` and follow steps below.
 
 ### Python
 To install poreFlow you will need Python installed. If you do not have Python on your computer, 
@@ -148,6 +145,8 @@ uv add poreflow
 If you want to develop, extend, or modify poreFlow, install as a developer 
 using the instructions on the [Contributing page][poreflow-dev-install].
 
+
+[poreflow_code]: https://gitlab.tudelft.nl/xiuqichen/poreFlow
 [with-pip]: #install-with-pip
 [with-uv]: #install-with-uv
 [Python package]: https://pypi.org/project/poreflow
