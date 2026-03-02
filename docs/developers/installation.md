@@ -73,3 +73,14 @@ in this repository, ensuring you install the same packages as the main developer
     ```shell
     uv pip install -e ".[dev]"
     ```
+
+## Troubleshooting
+
+### `_version.py` not found
+
+`poreflow.__version__` depends on `_version.py` which is created when building poreFlow from source. 
+Sometimes, when reinstalling this file removed. To generate it again, run:
+
+```shell linenums="1"
+uv build .
+```
