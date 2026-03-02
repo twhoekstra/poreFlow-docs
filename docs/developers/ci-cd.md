@@ -60,6 +60,16 @@ To start the runners, open a terminal in the folder containng `compose.yaml` and
 docker compose up -d
 ```
 
+
+## Troubleshooting
+
+During the project, at some point we had Docker runners both on a MacOS M3 machine and an Intel machine. 
+The former builds for the platform `linux_aarch64` while the latter built for `manylinux_2_41_x86_64`. 
+`.gitlab-ci.yml` does not take this into account so builds from one machine would not install for testing 
+on another machine. In this case, ensure that only one machine hosting the runners is on at any given time.
+
+
+
 [Docker Install]: https://docs.docker.com/get-started/get-docker/
 [Docker Compose]: https://docs.docker.com/compose/
 [GitLab Runner Register]: https://docs.gitlab.com/runner/register/

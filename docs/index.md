@@ -19,7 +19,7 @@ intended for use for research in the Cees Dekker lab.
 
     ---
 
-    View an overview of all the features of poreFLow
+    View an overview of all the features of poreFlow
 
     [:octicons-arrow-right-24: Introduction][introduction]
 
