@@ -28,7 +28,8 @@ nav = [
         "reference/events.md",
         "reference/steps.md",
     ]},
-    {"What's new" = [
+    {"What's New" = [
+        "whats-new/index.md",
         "whats-new/version-0.3.3.md",
     ]},
      {"Implementation Details" = [
@@ -95,11 +96,13 @@ logo = "lucide/hexagon"
 [project.theme]
 favicon = "assets/favicon.ico"
 features = [
+    "navigation.indexes",
     "navigation.instant",
     "navigation.tabs",
     "navigation.path",
     "navigation.footer",
     "content.code.copy",
+
 ]
 
 [[project.extra.social]]
