@@ -43,6 +43,7 @@ nav = [
         "developers/ci-cd.md",
         "developers/building.md",
         "developers/publishing.md",
+        "developers/docs.md",
     ]},
     {"Authors" = "authors.md"}
 ]
