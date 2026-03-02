@@ -33,7 +33,7 @@ cd poreFlow
 ## Install dependencies and module
 To install, simply run:
 ```shell linenums="3"
-  uv sync
+uv sync
 ```
 
 This, by default makes use of the [lockfile](https://docs.astral.sh/uv/concepts/projects/layout/#the-lockfile) provided 
