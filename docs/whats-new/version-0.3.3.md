@@ -1,9 +1,11 @@
-# Version 0.4.0
+# Version 0.3.3
 
 Release date: March 1, 2026
 
 ## Highlights
-This release includes CI/CD pipeline enhancements, bug fixes, and new utility functions.
+This release includes CI/CD pipeline enhancements, bug fixes, and new utility functions. Release is intended 
+to finalize publishing and CI/CD design choices for a while. There are no major functionality 
+changes since 0.2.5 and is fully cross-compatible with this version.
 
 ## Changelog
 - **Bessel filter utility** - Added `bessel_filter` function to `src/poreflow/utils.py` for signal processing
