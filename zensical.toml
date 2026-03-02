@@ -28,13 +28,13 @@ nav = [
         "reference/events.md",
         "reference/steps.md",
     ]},
+    {"What's new" = [
+        "whats-new/version-0.3.3.md",
+    ]},
      {"Implementation Details" = [
         "implementation-details/wishlist.md",
         "implementation-details/fast5-update.md",
         "implementation-details/labview-to-fast5-conversion.md",
-    ]},
-    {"What's new" = [
-        "whats-new/version-0.3.3.md",
     ]},
     {"Developers" = [
         "developers/introduction.md",
