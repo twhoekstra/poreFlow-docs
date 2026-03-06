@@ -6,10 +6,13 @@ Hosted on GitHub pages, check it out [here][poreFlow docs].
 ## Developers
 
 ### Install
+
+After `git clone` this repo, run the following:
+
 ```shell
-uv venv
-source .venv/bin/activate
+cd poreFlow-docs
 uv sync
+source .venv/bin/activate
 ```
 
 ### Use
