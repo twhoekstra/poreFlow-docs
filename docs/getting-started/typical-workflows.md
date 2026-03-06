@@ -1,3 +1,11 @@
+
+
+## I-V curve analysis
+
+An example [Jupyter notebook file](https://gitlab.tudelft.nl/xiuqichen/poreFlow/-/blob/main/notebooks/IV_curve.ipynb?ref_type=heads) is provided for processing I-V curve measurement of a nanopore.
+
+Once the poreFlow python env is configured properly, download this ipynb file to load the data file (.dat) for processing. 
+
 ## A typical nanopore sequencing workflow
 
 ```mermaid
