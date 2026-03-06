@@ -14,6 +14,15 @@ For processing sequencing data files (.fast5 or .dat), an example [Jupyter noteb
 
 A single [config file](https://gitlab.tudelft.nl/xiuqichen/poreFlow/-/blob/main/notebooks/parameters.toml?ref_type=heads) centralizes all measurement parameters, including the file name, event-finding settings, and filtering criteria.
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
 ## A typical nanopore sequencing workflow
 
 ```mermaid
