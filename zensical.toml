@@ -11,18 +11,18 @@ nav = [
     {"Getting Started" = [
         "getting-started/introduction.md",
         "getting-started/installation.md",
-        "getting-started/overview.md",
-        "getting-started/typical-workflow.md",
+        # "getting-started/overview.md",
+        "getting-started/typical-workflows.md",
     ]},
-    {"Examples" =  [
-        {"Input/Output" = [
-            "examples/loading-ont-data.md",
-            "examples/loading-utube-data.md",
-        ]},
-        {"Event detection and filtering" = [
-            "examples/full-ont-processing.md",
-        ]}
-    ]},
+    # {"Examples" =  [
+    #     {"Input/Output" = [
+    #         "examples/loading-ont-data.md",
+    #         "examples/loading-utube-data.md",
+    #     ]},
+    #     {"Event detection and filtering" = [
+    #         "examples/full-ont-processing.md",
+    #     ]}
+    # ]},
     {"Reference" = [
         "reference/poreflow.md",
         "reference/events.md",
@@ -32,11 +32,11 @@ nav = [
         "whats-new/index.md",
         "whats-new/version-0.3.3.md",
     ]},
-     {"Implementation Details" = [
-        "implementation-details/wishlist.md",
-        "implementation-details/fast5-update.md",
-        "implementation-details/labview-to-fast5-conversion.md",
-    ]},
+    #  {"Implementation Details" = [
+    #     "implementation-details/wishlist.md",
+    #     "implementation-details/fast5-update.md",
+    #     "implementation-details/labview-to-fast5-conversion.md",
+    # ]},
     {"Developers" = [
         "developers/introduction.md",
         "developers/installation.md",
