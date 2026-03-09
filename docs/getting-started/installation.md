@@ -140,6 +140,13 @@ Poreflow can now be installed stand-alone using ``uv``
 uv add poreflow
 ```
 
+## Upgrading poreFlow
+poreFlow can be upgraded by specifying the version in ``uv``. To find the latest version number, check out 
+poreFlow on [PyPI][poreflow PyPI].
+```shell linenums="3" title="Ugrading poreFlow"
+uv add "poreflow>=0.3.4"
+```
+
 ## Developer install
 
 If you want to develop, extend, or modify poreFlow, install as a developer 
@@ -158,3 +165,4 @@ using the instructions on the [Contributing page][poreflow-dev-install].
 [Using Python's pip to Manage Your Projects' Dependencies]: https://realpython.com/what-is-pip/
 [poreflow-dev-install]: ../developers/installation/#installation-from-source
 [wheels]: https://packaging.python.org/en/latest/specifications/binary-distribution-format/
+[poreflow PyPI]: https://pypi.org/project/poreflow/

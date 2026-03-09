@@ -11,6 +11,15 @@ resolution-markers = [
 ]
 
 [[package]]
+name = "annotated-doc"
+version = "0.0.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/57/ba/046ceea27344560984e26a590f90bc7f4a75b06701f653222458922b558c/annotated_doc-0.0.4.tar.gz", hash = "sha256:fbcda96e87e9c92ad167c2e53839e57503ecfda18804ea28102353485033faa4", size = 7288, upload-time = "2025-11-10T22:07:42.062Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1e/d3/26bf1008eb3d2daa8ef4cacc7f3bfdc11818d111f7e2d0201bc6e3b49d45/annotated_doc-0.0.4-py3-none-any.whl", hash = "sha256:571ac1dc6991c450b25a9c2d84a3705e2ae7a53467b5d111c24fa8baabbed320", size = 5303, upload-time = "2025-11-10T22:07:40.673Z" },
+]
+
+[[package]]
 name = "anyio"
 version = "4.12.1"
 source = { registry = "https://pypi.org/simple" }
@@ -494,6 +503,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/20/dd/3aed9bfd81dfd8f44b3a5db0583080ac9470d5e92ee134982bd5c69e286e/dash-4.0.0.tar.gz", hash = "sha256:c5f2bca497af288f552aea3ae208f6a0cca472559003dac84ac21187a1c3a142", size = 6943263, upload-time = "2026-02-03T19:42:27.92Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0b/8c/dd63d210b28a7589f4bc1e84880525368147425c717d12834ab562f52d14/dash-4.0.0-py3-none-any.whl", hash = "sha256:e36b4b4eae9e1fa4136bf4f1450ed14ef76063bc5da0b10f8ab07bd57a7cb1ab", size = 7247521, upload-time = "2026-02-03T19:42:25.01Z" },
+]
+
+[[package]]
+name = "dash-ag-grid"
+version = "33.3.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "dash" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3c/03/fa827ee5495d97245c043a248b2beecc0a45683051383138deba2492b61f/dash_ag_grid-33.3.3.tar.gz", hash = "sha256:7c646de0b19a1bc51ee09b8787bbba22293a6f2931bb31a47bb03d7194f6ace0", size = 4795838, upload-time = "2026-01-21T15:45:20.063Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d1/fc/121ccd949503b1db8ca8ab7c03ebf19497324928a153c89b2ec4ae3bb7b4/dash_ag_grid-33.3.3-py3-none-any.whl", hash = "sha256:987b5789441455bbfbff61dd6d839f2897f9e914e4fbb8e2d26eba5d92a4f8ef", size = 4825723, upload-time = "2026-01-21T15:45:18.018Z" },
 ]
 
 [[package]]
@@ -1292,6 +1313,18 @@ wheels = [
 ]
 
 [[package]]
+name = "markdown-it-py"
+version = "4.0.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mdurl" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/5b/f5/4ec618ed16cc4f8fb3b701563655a69816155e79e24a17b651541804721d/markdown_it_py-4.0.0.tar.gz", hash = "sha256:cb0a2b4aa34f932c007117b194e945bd74e0ec24133ceb5bac59009cda1cb9f3", size = 73070, upload-time = "2025-08-11T12:57:52.854Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/94/54/e7d793b573f298e1c9013b8c4dade17d481164aa517d1d7148619c2cedbf/markdown_it_py-4.0.0-py3-none-any.whl", hash = "sha256:87327c59b172c5011896038353a81343b6754500a08cd7a4973bb48c6d578147", size = 87321, upload-time = "2025-08-11T12:57:51.923Z" },
+]
+
+[[package]]
 name = "markupsafe"
 version = "3.0.3"
 source = { registry = "https://pypi.org/simple" }
@@ -1439,6 +1472,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/c7/74/97e72a36efd4ae2bccb3463284300f8953f199b5ffbc04cbbb0ec78f74b1/matplotlib_inline-0.2.1.tar.gz", hash = "sha256:e1ee949c340d771fc39e241ea75683deb94762c8fa5f2927ec57c83c4dffa9fe", size = 8110, upload-time = "2025-10-23T09:00:22.126Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/af/33/ee4519fa02ed11a94aef9559552f3b17bb863f2ecfe1a35dc7f548cde231/matplotlib_inline-0.2.1-py3-none-any.whl", hash = "sha256:d56ce5156ba6085e00a9d54fead6ed29a9c47e215cd1bba2e976ef39f5710a76", size = 9516, upload-time = "2025-10-23T09:00:20.675Z" },
+]
+
+[[package]]
+name = "mdurl"
+version = "0.1.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz", hash = "sha256:bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba", size = 8729, upload-time = "2022-08-14T12:40:10.846Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/b3/38/89ba8ad64ae25be8de66a6d463314cf1eb366222074cfda9ee839c56a4b4/mdurl-0.1.2-py3-none-any.whl", hash = "sha256:84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8", size = 9979, upload-time = "2022-08-14T12:40:09.779Z" },
 ]
 
 [[package]]
@@ -2127,10 +2169,11 @@ wheels = [
 
 [[package]]
 name = "poreflow"
-version = "0.2.5"
+version = "0.3.4"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dash" },
+    { name = "dash-ag-grid" },
     { name = "dash-bootstrap-components" },
     { name = "h5py" },
     { name = "matplotlib" },
@@ -2143,10 +2186,15 @@ dependencies = [
     { name = "seaborn" },
     { name = "tables" },
     { name = "tqdm" },
+    { name = "typer" },
+    { name = "waitress" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/63/d1/c7efeb841b9cfd2a943a0d0d6bed6c3a56b53c099bac814aa86933fee782/poreflow-0.2.5.tar.gz", hash = "sha256:42678f7482c33cda90f4db50410c59478cc97a016836bb387be831fece98f549", size = 1231453, upload-time = "2026-02-26T01:07:17.071Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/96/4c/4a634c7408e881dfff282fea1f458d4e8ae7e314c3a8c0f8a0254e6d5abb/poreflow-0.3.4.tar.gz", hash = "sha256:133d48729125cb5221e5873ee131fadb1b859a6e325be399e3c40d661e13e881", size = 943325, upload-time = "2026-03-09T13:14:28.51Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/49/81/b76e933ba9975aae7ecc8afa962aa46cceacf998ae7322592b6b0995db62/poreflow-0.2.5-cp311-cp311-macosx_26_0_arm64.whl", hash = "sha256:a535319f0d757b7e8a29f62cd5517ac271d31d824329ef9019d6db2003c6a354", size = 3083149, upload-time = "2026-02-26T01:05:24.68Z" },
+    { url = "https://files.pythonhosted.org/packages/0a/4c/376be371e3ae26f8833844ab6b882b1a15bf29670e12f31ae5f05847c1e6/poreflow-0.3.4-cp311-cp311-macosx_26_0_arm64.whl", hash = "sha256:8e01488042d44afaaf3de498f65bc6378283553e1412131af6303396b4db2ef5", size = 3094666, upload-time = "2026-03-09T13:33:57.177Z" },
+    { url = "https://files.pythonhosted.org/packages/60/08/2243d603e3cc511e5b3ec39bd04e9eafcc11ceccff83903183e939c4963f/poreflow-0.3.4-cp312-cp312-macosx_26_0_arm64.whl", hash = "sha256:a95319babd06d99dadb1a0255f4448a4eaedd0190f884b3b4cc0cccf5a56410e", size = 3094672, upload-time = "2026-03-09T13:33:59.69Z" },
+    { url = "https://files.pythonhosted.org/packages/91/31/d6016b6df8c8d6e97cec55534b93e2c3dca32516889fb8a070747e0db7da/poreflow-0.3.4-cp313-cp313-macosx_26_0_arm64.whl", hash = "sha256:5dfc1f6dfc5b22f9f830d2abcc17ed1c543b94e07f13b3a1492d9a8b826d84b0", size = 3094691, upload-time = "2026-03-09T13:34:02.33Z" },
+    { url = "https://files.pythonhosted.org/packages/46/bc/425c07ac575b051063b9d655ef8c08f1c5422b12546246f86cc527c3ee3f/poreflow-0.3.4-cp314-cp314-macosx_26_0_arm64.whl", hash = "sha256:eafe6070ae04affdf3ceb2677d536820d2ce57ad9d681b3bfc9cd52ff1d4e586", size = 3094694, upload-time = "2026-03-09T13:34:05.497Z" },
 ]
 
 [[package]]
@@ -2168,7 +2216,7 @@ requires-dist = [
     { name = "mkdocstrings-python", specifier = ">=2.0.2" },
     { name = "nbconvert", specifier = ">=7.17.0" },
     { name = "pip", specifier = ">=26.0.1" },
-    { name = "poreflow", specifier = ">=0.2.5" },
+    { name = "poreflow", specifier = ">=0.3.4" },
     { name = "zensical", specifier = ">=0.0.23" },
 ]
 
@@ -2526,6 +2574,19 @@ wheels = [
 ]
 
 [[package]]
+name = "rich"
+version = "14.3.3"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "markdown-it-py" },
+    { name = "pygments" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/b3/c6/f3b320c27991c46f43ee9d856302c70dc2d0fb2dba4842ff739d5f46b393/rich-14.3.3.tar.gz", hash = "sha256:b8daa0b9e4eef54dd8cf7c86c03713f53241884e814f4e2f5fb342fe520f639b", size = 230582, upload-time = "2026-02-19T17:23:12.474Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/14/25/b208c5683343959b670dc001595f2f3737e051da617f66c31f7c4fa93abc/rich-14.3.3-py3-none-any.whl", hash = "sha256:793431c1f8619afa7d3b52b2cdec859562b950ea0d4b6b505397612db8d5362d", size = 310458, upload-time = "2026-02-19T17:23:13.732Z" },
+]
+
+[[package]]
 name = "rpds-py"
 version = "0.30.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2787,6 +2848,15 @@ wheels = [
 ]
 
 [[package]]
+name = "shellingham"
+version = "1.5.4"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/58/15/8b3609fd3830ef7b27b655beb4b4e9c62313a4e8da8c676e142cc210d58e/shellingham-1.5.4.tar.gz", hash = "sha256:8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de", size = 10310, upload-time = "2023-10-24T04:13:40.426Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/e0/f9/0595336914c5619e5f28a1fb793285925a8cd4b432c9da0a987836c7f822/shellingham-1.5.4-py2.py3-none-any.whl", hash = "sha256:7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686", size = 9755, upload-time = "2023-10-24T04:13:38.866Z" },
+]
+
+[[package]]
 name = "six"
 version = "1.17.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2919,6 +2989,21 @@ wheels = [
 ]
 
 [[package]]
+name = "typer"
+version = "0.24.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "annotated-doc" },
+    { name = "click" },
+    { name = "rich" },
+    { name = "shellingham" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f5/24/cb09efec5cc954f7f9b930bf8279447d24618bb6758d4f6adf2574c41780/typer-0.24.1.tar.gz", hash = "sha256:e39b4732d65fbdcde189ae76cf7cd48aeae72919dea1fdfc16593be016256b45", size = 118613, upload-time = "2026-02-21T16:54:40.609Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/4a/91/48db081e7a63bb37284f9fbcefda7c44c277b18b0e13fbc36ea2335b71e6/typer-0.24.1-py3-none-any.whl", hash = "sha256:112c1f0ce578bfb4cab9ffdabc68f031416ebcc216536611ba21f04e9aa84c9e", size = 56085, upload-time = "2026-02-21T16:54:41.616Z" },
+]
+
+[[package]]
 name = "typing-extensions"
 version = "4.15.0"
 source = { registry = "https://pypi.org/simple" }
@@ -2952,6 +3037,15 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/c7/24/5f1b3bdffd70275f6661c76461e25f024d5a38a46f04aaca912426a2b1d3/urllib3-2.6.3.tar.gz", hash = "sha256:1b62b6884944a57dbe321509ab94fd4d3b307075e0c2eae991ac71ee15ad38ed", size = 435556, upload-time = "2026-01-07T16:24:43.925Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl", hash = "sha256:bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4", size = 131584, upload-time = "2026-01-07T16:24:42.685Z" },
+]
+
+[[package]]
+name = "waitress"
+version = "3.0.2"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/bf/cb/04ddb054f45faa306a230769e868c28b8065ea196891f09004ebace5b184/waitress-3.0.2.tar.gz", hash = "sha256:682aaaf2af0c44ada4abfb70ded36393f0e307f4ab9456a215ce0020baefc31f", size = 179901, upload-time = "2024-11-16T20:02:35.195Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/8d/57/a27182528c90ef38d82b636a11f606b0cbb0e17588ed205435f8affe3368/waitress-3.0.2-py3-none-any.whl", hash = "sha256:c56d67fd6e87c2ee598b76abdd4e96cfad1f24cacdea5078d382b1f9d7b5ed2e", size = 56232, upload-time = "2024-11-16T20:02:33.858Z" },
 ]
 
 [[package]]

@@ -32,6 +32,7 @@ nav = [
     {"What's New" = [
         "whats-new/index.md",
         "whats-new/version-0.3.3.md",
+        "whats-new/version-0.3.4.md",
     ]},
     {"Developers" = [
         "developers/introduction.md",
