@@ -144,7 +144,7 @@ uv add poreflow
 poreFlow can be upgraded by specifying the version in ``uv``. To find the latest version number, check out 
 poreFlow on [PyPI][poreflow PyPI].
 ```shell linenums="3" title="Upgrading poreFlow"
-uv add "poreflow>=0.3.4"
+uv add "poreflow>=0.3.5"
 ```
 
 ## Developer install

@@ -2169,7 +2169,7 @@ wheels = [
 
 [[package]]
 name = "poreflow"
-version = "0.3.4"
+version = "0.3.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "dash" },
@@ -2189,12 +2189,12 @@ dependencies = [
     { name = "typer" },
     { name = "waitress" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/96/4c/4a634c7408e881dfff282fea1f458d4e8ae7e314c3a8c0f8a0254e6d5abb/poreflow-0.3.4.tar.gz", hash = "sha256:133d48729125cb5221e5873ee131fadb1b859a6e325be399e3c40d661e13e881", size = 943325, upload-time = "2026-03-09T13:14:28.51Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/69/8e/551762880aac1ead10b1087ba676d5509e8efa94802fa20329e3475f696a/poreflow-0.3.5.tar.gz", hash = "sha256:ad6f9ff4be53194d997635bc0abdcc920ff91ec7910390d6c6ba25b67590db9a", size = 943377, upload-time = "2026-03-10T09:05:18.56Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/0a/4c/376be371e3ae26f8833844ab6b882b1a15bf29670e12f31ae5f05847c1e6/poreflow-0.3.4-cp311-cp311-macosx_26_0_arm64.whl", hash = "sha256:8e01488042d44afaaf3de498f65bc6378283553e1412131af6303396b4db2ef5", size = 3094666, upload-time = "2026-03-09T13:33:57.177Z" },
-    { url = "https://files.pythonhosted.org/packages/60/08/2243d603e3cc511e5b3ec39bd04e9eafcc11ceccff83903183e939c4963f/poreflow-0.3.4-cp312-cp312-macosx_26_0_arm64.whl", hash = "sha256:a95319babd06d99dadb1a0255f4448a4eaedd0190f884b3b4cc0cccf5a56410e", size = 3094672, upload-time = "2026-03-09T13:33:59.69Z" },
-    { url = "https://files.pythonhosted.org/packages/91/31/d6016b6df8c8d6e97cec55534b93e2c3dca32516889fb8a070747e0db7da/poreflow-0.3.4-cp313-cp313-macosx_26_0_arm64.whl", hash = "sha256:5dfc1f6dfc5b22f9f830d2abcc17ed1c543b94e07f13b3a1492d9a8b826d84b0", size = 3094691, upload-time = "2026-03-09T13:34:02.33Z" },
-    { url = "https://files.pythonhosted.org/packages/46/bc/425c07ac575b051063b9d655ef8c08f1c5422b12546246f86cc527c3ee3f/poreflow-0.3.4-cp314-cp314-macosx_26_0_arm64.whl", hash = "sha256:eafe6070ae04affdf3ceb2677d536820d2ce57ad9d681b3bfc9cd52ff1d4e586", size = 3094694, upload-time = "2026-03-09T13:34:05.497Z" },
+    { url = "https://files.pythonhosted.org/packages/53/04/9c0a554c7fc3258059103942f05c6b5eb3624b9b567168f00f558a4be988/poreflow-0.3.5-cp311-cp311-macosx_26_0_arm64.whl", hash = "sha256:1cc6dcb63cfb10fee8ae4cd16c5525d1891e2913856c222d7373e8fe2c2b111f", size = 3094714, upload-time = "2026-03-10T09:10:29.079Z" },
+    { url = "https://files.pythonhosted.org/packages/0e/93/d114c6b52e09884447d16cb8a2cb03739e0992eaae9ec5813cbf0dd3c3cb/poreflow-0.3.5-cp312-cp312-macosx_26_0_arm64.whl", hash = "sha256:6ff5fa7d03cd61662e32e70080d6cca5582ff43612c19f05c57021de7325188a", size = 3094733, upload-time = "2026-03-10T09:10:31.054Z" },
+    { url = "https://files.pythonhosted.org/packages/cb/db/4ca2593cbb5e1b54f17d2138a5ea4e03e98333e7505e602f3ca87bb20bbe/poreflow-0.3.5-cp313-cp313-macosx_26_0_arm64.whl", hash = "sha256:84d320a2d9498ba83221106bc7f0615da9e19311c583042f476e2f2d51a510f1", size = 3094722, upload-time = "2026-03-10T09:10:32.961Z" },
+    { url = "https://files.pythonhosted.org/packages/28/8a/548da930d8b0632c8eb243126cc087585e1d9d3d1ba81f3ec02e9791bfe7/poreflow-0.3.5-cp314-cp314-macosx_26_0_arm64.whl", hash = "sha256:ea41b48425282baec4c284609dbaa799dca2cfb0d3ebeb0fdeb7a855024ff18a", size = 3094757, upload-time = "2026-03-10T09:10:34.794Z" },
 ]
 
 [[package]]
@@ -2216,7 +2216,7 @@ requires-dist = [
     { name = "mkdocstrings-python", specifier = ">=2.0.2" },
     { name = "nbconvert", specifier = ">=7.17.0" },
     { name = "pip", specifier = ">=26.0.1" },
-    { name = "poreflow", specifier = ">=0.3.4" },
+    { name = "poreflow", specifier = ">=0.3.5" },
     { name = "zensical", specifier = ">=0.0.23" },
 ]
 
