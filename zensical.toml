@@ -14,6 +14,11 @@ nav = [
         # "getting-started/overview.md",
         "getting-started/typical-workflows.md",
     ]},
+     {"Features" =  [
+         {"Input/Output" = [
+             "features/io/annotations.md",
+         ]},
+     ]},
      {"Examples" =  [
          "examples/index.md",
 #         {"Input/Output" = [
@@ -105,7 +110,7 @@ features = [
     "navigation.path",
     "navigation.footer",
     "content.code.copy",
-
+    "content.code.annotate",
 ]
 
 [[project.extra.social]]
