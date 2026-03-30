@@ -107,38 +107,40 @@ with pf.File("measurement.fast5", annotation_path=annotations_dir) as f:
 
 
 
-### 4. Opening via Annotation File
+### Opening via an annotation file
 
-You can open a file directly using its annotation:
+You can also open a data file by requesting using its annotation in [`poreflow.File`][F]. The annotation 
+stores its parent data file inside, allowing the file loader to automatically find and load the data file.
+
+```title="Project structure"
+my-project/
+ ├── measurement.fast5    
+ └── measurement.annot.fast5
+```
 
 ```python
 import poreflow as pf
 
 # Open using the annotation file
-with pf.File("measurement.annot.fast5") as f:
-    # Automatically loads the linked measurement.fast5
-    events = f.get_events()
+with pf.File("measurement.annot.fast5") as f: # (1)!
+    events = f.get_events() 
 ```
 
-## Data Storage
+1. The linked measurement.fast5 is automatically loaded here
 
-### What's Stored Where
+!!! tip
+    Both the `fast5` and `annot.fast5` files must be in the same directory.
 
-| Data Type | Location | File Extension | Access Mode |
-|-----------|----------|----------------|-------------|
-| Raw current/voltage | Original file | `.fast5` or `.dat` | Read-only |
-| Tracking metadata | Original file | `.fast5` or `.dat` | Read-only |
-| Context metadata | Original file | `.fast5` or `.dat` | Read-only |
-| **Events** | Annotation file | `.annot.fast5` | Read-write |
-| **Steps** | Annotation file | `.annot.fast5` | Read-write |
-| **Open state fits** | Annotation file | `.annot.fast5` | Read-write |
-| Annotation metadata | Annotation file | `.annot.fast5` | Read-write |
 
-## Advanced Usage
 
-### Multiple Analysis Paths
+### Multiple annotations
 
 A powerful feature of the annotation system is the ability to analyze the same raw data in different ways, each with its own annotation file:
+
+```title="Project structure"
+my-project/
+ └── measurement.fast5
+```
 
 ```python
 import poreflow as pf
@@ -190,6 +192,20 @@ with pf.File(measurement, annotation_path=analysis_dirs["aggressive"]) as f:
 #     └── aggressive/
 #         └── experiment_20240315.annot.fast5      # Aggressive parameters
 ```
+
+
+## What's Stored Where
+
+Which objects are stored in which file is summarized in the table below.
+
+| Data Type | Location | File Extension | Access Mode |
+|----------|----------|----------------|-------------|
+| Raw current/voltage | Original file | `.fast5` or `.dat` | Read-only |
+| Sampling rate | Original file | `.fast5` or `.dat` | Read-only |
+| Events   | Annotation file | `.annot.fast5` | Read-write |
+| Steps    | Annotation file | `.annot.fast5` | Read-write |
+| Open state fits | Annotation file | `.annot.fast5` | Read-write |
+
 
 This approach allows you to:
 - Compare different analysis strategies on the same data
@@ -271,22 +287,10 @@ measurement.annot.fast5
 
 4. **Storage**: Store annotations on fast SSD storage for better performance
 
-## Migration Guide
 
-No migration needed! The system automatically:
-
-1. Creates annotation files when opening existing data files
-2. Maintains backward compatibility with existing code
-3. Handles both `.fast5` and `.dat` files seamlessly
 
 Existing code continues to work without modifications.
 
-```mermaid
-graph TD;
-    A@{ shape: cyl, label: "Data File<br><tt>.fast5</tt>"}-->|Read only|D[File<br><tt>poreflow.File</tt>]
-    C@{ shape: cyl, label: "UTube File<br><tt>.dat</tt>"}-->|Converted|A
-    E@{ shape: cyl, label: "Annotation File<br><tt>.dat</tt>"}-->|Converted|D
-```
 
 [HDF5 File]: https://support.hdfgroup.org/documentation/hdf5/latest/_h5_d_m__u_g.html
 [F]: ../../reference/poreflow/#poreflow.File
