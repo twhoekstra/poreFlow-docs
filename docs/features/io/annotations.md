@@ -135,64 +135,96 @@ with pf.File("measurement.annot.fast5") as f: # (1)!
 
 ### Multiple annotations
 
-A powerful feature of the annotation system is the ability to analyze the same raw data in different ways, each with its own annotation file:
+A powerful feature of the annotation system is the ability to analyze the same raw data in different ways, 
+each with its own annotation file. Consider a simple project:
 
 ```title="Project structure"
 my-project/
  └── measurement.fast5
 ```
 
-```python
-import poreflow as pf
-from pathlib import Path
+Imagine we want to try to analyse this measurement using two different approaches. This can be managed easily 
+using the annotation system by creating a unique annotation file per analysis:
 
-# Original measurement file
-measurement = "experiment_20240315.fast5"
+=== ":lucide-folder: Storing annotations in different directories"
 
-# Create different analysis directories
-analysis_dirs = {
-    "default": Path("."),
-    "conservative": Path("analysis/conservative"),
-    "aggressive": Path("analysis/aggressive")
-}
+    In this example we process the measurement twice, storing the annotation in a different folder for each.
 
-# Ensure directories exist
-for dir_path in analysis_dirs.values():
-    dir_path.mkdir(parents=True, exist_ok=True)
+    ```python linenums="1"
+    import poreflow as pf
+    
+    # Analysis 1: Default parameters
+    with pf.File("measurement.fast5", search_path="default") as f:
+        f.find_events(min_duration=0.1)
+        print(f.n_events)
+    
+    # Analysis 2: Long events only 
+    with pf.File("measurement.fast5", search_path="long") as f:
+        f.find_events(min_duration=1)
+        print(f.n_events)
+    ```
+    
+    This approach results in the following project structure:
 
-# Analysis 1: Default parameters
-with pf.File(measurement, annotation_path=analysis_dirs["default"]) as f:
-    events_default = pf.detect_events(f, channel=0)
-    f.set_events(events_default)
-    # Saved to: experiment_20240315.annot.fast5
+    ```title="Project structure"
 
-# Analysis 2: Conservative parameters (higher thresholds)
-with pf.File(measurement, annotation_path=analysis_dirs["conservative"]) as f:
-    events_conservative = pf.detect_events(f, channel=0, 
-                                          threshold=1.5,  # Higher threshold
-                                          min_duration=0.002)  # Longer minimum duration
-    f.set_events(events_conservative)
-    # Saved to: analysis/conservative/experiment_20240315.annot.fast5
+    project/
+     ├── measurement.fast5                 
+     ├── default/
+     │   └── measurement.annot.fast5      # Default process
+     └── long/
+         └── measurement.annot.fast5      # Alternative process
+    ```
 
-# Analysis 3: Aggressive parameters (lower thresholds)
-with pf.File(measurement, annotation_path=analysis_dirs["aggressive"]) as f:
-    events_aggressive = pf.detect_events(f, channel=0,
-                                         threshold=0.8,  # Lower threshold
-                                         min_duration=0.0005)  # Shorter minimum duration
-    f.set_events(events_aggressive)
-    # Saved to: analysis/aggressive/experiment_20240315.annot.fast5
+    ??? info "Why `search_path`?"
+        The `search_path` parameter in [`poreflow.File`][F] specifies where to search for an annotation, and to create 
+        an annotation in this folder if none is found. That is why this parameter is used for saving and loading 
+        multiple annotations stored in different folders.
 
-# Folder structure:
-# project/
-# ├── experiment_20240315.fast5                  # Original raw data
-# ├── experiment_20240315.annot.fast5             # Default analysis
-# └── analysis/
-#     ├── conservative/
-#     │   └── experiment_20240315.annot.fast5      # Conservative parameters
-#     └── aggressive/
-#         └── experiment_20240315.annot.fast5      # Aggressive parameters
-```
+    ??? example "Storing configurations alongside annotations"
+        Storing annotations in different folders could be particularly useful when also storing the configurations
+        (such as poreflow.toml) used for processing alongside the annotations. For example: 
 
+        ```title="Example project structure"
+
+        project/
+         ├── measurement.fast5                 
+         ├── default/
+         │   ├── poreflow.toml                # Default configuration
+         │   └── measurement.annot.fast5      # Default process
+         └── long/
+             ├── poreflow.toml                # Alternative configuration
+             └── measurement.annot.fast5      # Alternative process
+        ```
+
+=== ":lucide-file: Storing annotations with different filenames"
+
+    In this example we process the measurement twice, storing the annotations with different filenames.
+
+    ```python linenums="1"
+    import poreflow as pf
+    
+    # Analysis 1: Default parameters
+    with pf.File("measurement.fast5", annotation_name="default") as f:
+        f.find_events(min_duration=0.1)
+        print(f.n_events)
+    
+    # Analysis 2: Long events only 
+    with pf.File("measurement.fast5", annotation_name="long") as f:
+        f.find_events(min_duration=1)
+        print(f.n_events)
+    ```
+    
+    This approach results in the following project structure:
+
+    ```title="Project structure"
+
+    project/
+     ├── measurement.fast5                 
+     ├── default.annot.fast5    # Default parameters
+     └── long.annot.fast5       # Alternative parameters 
+    ```
+    
 
 ## What's Stored Where
 
@@ -206,12 +238,6 @@ Which objects are stored in which file is summarized in the table below.
 | Steps    | Annotation file | `.annot.fast5` | Read-write |
 | Open state fits | Annotation file | `.annot.fast5` | Read-write |
 
-
-This approach allows you to:
-- Compare different analysis strategies on the same data
-- Optimize parameters without losing previous work
-- Maintain a complete audit trail of your analysis process
-- Easily switch between different interpretations of the same data
 
 ### Working with DataFile and Annotation Classes
 
