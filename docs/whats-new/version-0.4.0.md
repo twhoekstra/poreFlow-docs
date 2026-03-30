@@ -7,8 +7,42 @@ Key changes include the introduction of "Annotation" files and an upgraded dashb
 
 ## Highlights
 
-### Annotations Separation
-Annotations are now stored in a separate file from raw data, allowing for more flexible data management and easier sharing of analysis results without raw data.
+### Annotations 
+
+!!! info
+
+    For a complete description of the annotations system, check out: [Annotations][].
+
+Analysis results like events and steps are now stored in a separate file from raw data, allowing for more flexible 
+data management and easier sharing of analysis results without raw data. Consider this example project:
+
+```title="Project structure"
+my-project/
+ └── measurement.dat 
+```
+
+Then this `.dat` data file, can be opened using [`poreflow.File`][F]:
+
+```python linenums="1"
+import poreflow as pf
+
+with pf.File("measurement.dat") as f: # (1)!
+    f.find_events() # (2)!
+```
+
+Processing results are stored in a separate file with the `annot.fast5` extension.
+
+```title="Project structure (after opening)"
+my-project/
+ ├── measurement.dat    
+ ├── measurement.fast5    
+ └── measurement.annot.fast5  <-- Analysis results (read-write)
+```
+
+This new system is fully backwards compatible with poreFlow 0.3.X, as annotation opening is managed under the 
+hood by [`poreflow.File`][F]. As a result, no changes in processing scripts are needed. Note that the annotations 
+system has many advantages for most users, to learn more, check out the 
+[Annotations][] feature page.
 
 ### Parallel Processing
 Enhanced parallel processing capabilities for event and step detection, with improved efficiency and better handling of multiprocessing across different platforms.
@@ -75,4 +109,6 @@ No migration needed! The system automatically:
 ## Authors
 Thijn Hoekstra and Xiuqi Chen, see [Authors].
 
+[Annotations]: ../features/io/annotations.md
 [Authors]: ./../authors
+[F]: ../../reference/poreflow/#poreflow.File

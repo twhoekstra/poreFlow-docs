@@ -18,6 +18,7 @@ nav = [
          {"Input/Output" = [
              "features/io/annotations.md",
          ]},
+         "features/filtering.md",
      ]},
      {"Examples" =  [
          "examples/index.md",
