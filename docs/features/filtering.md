@@ -47,24 +47,13 @@ anti-aliasing filter before downsampling.
 
 ### Example
 ```python linenums="1"
-import poreflow as pf
-
-with pf.File("my_measurement.dat") as f:
-    raw = f.get_raw()  # (1)!
-    print(f"File sample rate {f.sfreq}")
-
-
-raw = raw.downsample(2500) # (2)!
-
-print(f"Original sample rate {raw.sfreq_original} downsampled to {raw.sfreq}")
+--8<-- "docs/features/filtering.py:block_1"
 ```
-<div class="result" markdown>
-```
-import tensorflow as tf
-```
-</div>
+
 1. Get raw data for channel 0.
 2. Downsample to 2.5 kHz
+
+
 
 
 
