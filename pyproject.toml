@@ -9,6 +9,7 @@ dependencies = [
     "mkdocstrings-python>=2.0.2",
     "nbconvert>=7.17.0",
     "pip>=26.0.1",
-    "poreflow>=0.3.5",
+    "poreflow>=0.4.0",
+    "pytest>=9.0.2",
     "zensical>=0.0.23",
 ]
