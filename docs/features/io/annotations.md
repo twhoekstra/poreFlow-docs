@@ -26,44 +26,73 @@ graph TD;
 Interfacing between the data and annotation files is done automatically by [`poreflow.File`][F]. In the section below, 
 you can find usage examples outlining how this works.
 
-### Opening an unannotated data file
+### Opening a data file for the first time
 
 
-When an unannotated data file is opened, poreFlow will automatically create an annotation file in which to store 
-analysis results.
-Consider this simple project structure:
+When a data file is opened for the first time, poreFlow will automatically create an annotation file in which to store 
+analysis results. Consider this simple project structure:
 
-```title="Project structure"
-my-project/
- └── measurement.fast5 
-```
+=== ":lucide-flask-conical: UTube"
+    ```title="Project structure"
+    my-project/
+     └── measurement.dat 
+    ```
 
-Then this `.fast5` or `.dat` data file, can be opened using [`poreflow.File`][F]:
+    Then this `.dat` data file, can be opened using [`poreflow.File`][F]:
 
-```python linenums="1"
-import poreflow as pf
+    ```python linenums="1"
+    import poreflow as pf
+    
+    with pf.File("measurement.dat") as f: # (1)!
+        f.find_events() # (2)!
+    ```
 
-with pf.File("measurement.fast5") as f: # (1)!
-    f.find_events() # (2)!
-```
+    1.  A `.fast5` and annotation file is created automatically here.
+    2.  Analysis results, such as events, are automatically stored in the annotations file.
 
-1.  An annotation file is created automatically here.
-2.  Analysis results, such as events, are automatically stored in the annotations file.
+=== ":lucide-building-2: ONT"
+    ```title="Project structure"
+    my-project/
+     └── measurement.fast5 
+    ```
+
+    Then this `.fast5` data file, can be opened using [`poreflow.File`][F]:
+
+    ```python linenums="1"
+    import poreflow as pf
+    
+    with pf.File("measurement.fast5") as f: # (1)!
+        f.find_events() # (2)!
+    ```
+
+    1.  An annotation file is created automatically here.
+    2.  Analysis results, such as events, are automatically stored in the annotations file.
 
 In the background, poreFlow automatically creates an annotation file. By default, this file is placed in the same 
 directory as the data file, and the file has the same name as the annotation file, but with the extension 
 `.annot.fast5`, in this case: `measurement.annot.fast5`. 
 
-```title="Project structure (after opening)"
-my-project/
- ├── measurement.fast5    
- └── measurement.annot.fast5  <-- Analysis results (read-write)
-```
+=== ":lucide-flask-conical: UTube"
+    ```title="Project structure (after opening)"
+    my-project/
+     ├── measurement.dat    
+     ├── measurement.fast5    
+     └── measurement.annot.fast5  <-- Analysis results (read-write)
+    ```
 
+=== ":lucide-building-2: ONT"
+    ```title="Project structure (after opening)"
+    my-project/
+     ├── measurement.fast5    
+     └── measurement.annot.fast5  <-- Analysis results (read-write)
+    ```
 
 All analysis results are automatically saved to this file. 
 
 ### Opening an annotated file
+
+!!! info
+    For simplicity, further examples on this page use the ONT `.fast5` file as an example, but work just as well with UTube `.dat` files
 
 If an annotation file already exists next to the data file, it's automatically loaded. Consider this example, 
 where we continue analyzing the file from the [previous section](#opening-an-unannotated-data-file), in which we 
@@ -239,84 +268,19 @@ Which objects are stored in which file is summarized in the table below.
 | Open state fits | Annotation file | `.annot.fast5` | Read-write |
 
 
-### Working with DataFile and Annotation Classes
+## Best Practices
 
-For advanced users who need direct control:
+Some general tips on how to use annotations:
 
-```python
-from poreflow.io.ont import DataFile
-from poreflow.io.annotations import Annotation
+1. **Version Control**: While raw `.fast5` files are generally too large to store in version control (Git), 
+`.annot.fast5` are much smaller and could be stored in Git.
 
-# Open raw data only (no annotations)
-datafile = DataFile("measurement.fast5")
-raw_data = datafile.get_raw(channel=0)
-datafile.close()
+2. **Backup Strategy**: While raw data files are precious and should be backed up regularly, annotation files can be 
+regenerated from raw data if their (if the configuration of analysis steps is known). This means that annotation files 
+can be more readily deleted.
 
-# Work with annotations directly
-annotation = Annotation("measurement.annot.fast5")
-events = annotation.get_events()
-steps = annotation.get_steps()
-
-# Save new events
-annotation.set_events(new_events_df, mode='w')  # Overwrite
-annotation.set_events(additional_events_df, mode='a')  # Append
-
-annotation.close()
-```
-
-### Parallel Processing with Annotations
-
-The annotation system enables efficient parallel processing:
-
-```python
-import poreflow as pf
-
-# Process multiple files in parallel
-files = ["measurement1.fast5", "measurement2.fast5", "measurement3.fast5"]
-
-for filename in files:
-    with pf.File(filename) as f:
-        # Each file has its own annotation
-        # No I/O lock contention between processes
-        events = pf.detect_events(f, channel=0)
-        f.set_events(events)  # Saved to separate annotation file
-```
-
-### Annotation File Structure
-
-Annotation files use HDF5 format with this structure:
-
-```
-measurement.annot.fast5
-├── Meta/                    # Metadata group
-│   ├── attrs:              # Attributes
-│   │   ├── poreflow_version
-│   │   ├── python_version
-│   │   └── describes       # -> "measurement.fast5"
-│
-├── events/                 # Events dataset (if exists)
-├── steps/                  # Steps dataset (if exists)
-└── ios_fit/                # Open state fit dataset (if exists)
-```
-
-### Best Practices
-
-1. **Version Control**: Store raw `.fast5` files in version control, but consider excluding `.annot.fast5` files (add them to `.gitignore`)
-
-2. **Backup Strategy**: 
-   - Backup raw data files regularly
-   - Annotation files can be regenerated from raw data
-
-3. **Collaboration**: 
-   - Share raw data files with colleagues
-   - Each analyst can have their own annotation files
-
-4. **Storage**: Store annotations on fast SSD storage for better performance
-
-
-
-Existing code continues to work without modifications.
-
+3. **Collaboration**: A corollary of the above: While raw data files are shared on the drive, it makes sense to 
+have annotation files on your device only.
 
 [HDF5 File]: https://support.hdfgroup.org/documentation/hdf5/latest/_h5_d_m__u_g.html
 [F]: ../../reference/poreflow/#poreflow.File
