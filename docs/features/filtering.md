@@ -64,13 +64,13 @@ EventDataFrame.
 
 By default, only the current and voltage columns processed with an anti-aliasing filter before downsampling.
 
-
-
 ## Filtering
 
-filtered using a 4th-order Bessel filter.
+Unwanted high-frequency noise can be filtered using a 4th-order Bessel low-pass filter. 
+Specify the cut-off frequency of the filter to from which frequency to attenuate the signal.
 
-Typically  `BaseDataFrame.apply_filter`
+Downscaling is done using the `.apply_filter` method on poreFlow dataframe objects, like RawDataFrame or 
+EventDataFrame.
 
 ### Example
 ```python linenums="1"
@@ -85,74 +85,42 @@ Typically  `BaseDataFrame.apply_filter`
 ```
 </div>
 
-## Methods
+By default, only the current and voltage columns are filtered. To change this behaviour, check out the 
+reference.
 
 
-
-Applies a filter to the specified columns of the DataFrame.
-
-**Parameters:**
-- `cutoff` (float): The cutoff frequency for the filter in Hz.
-- `cols` (list, optional): Columns to filter. Defaults to `[pf.VOLTAGE_COL, pf.CURRENT_COL]`.
-- `method` (str, optional): Filtering method. Options are `"bessel4"` (default) or `"decimate"`.
-- `verbose` (int, optional): Verbosity level (0, 1, or 2).
-
-**Returns:**
-- `BaseDataFrame`: A new DataFrame with the filtered data.
-
-**Behavior:**
-- If `method="decimate"`, the DataFrame is downsampled by truncating other columns to match the filtered data length.
-- If `method="bessel4"`, the DataFrame retains the same number of samples, and the `filter_cutoff` attribute is updated.
-
-### `BaseDataFrame.downsample`
-
-Downsamples the DataFrame to a specified sampling frequency.
-
-**Parameters:**
-- `to` (float): Target sampling frequency in Hz. If `None` or greater than the current sampling frequency, returns the original DataFrame.
-- `cols` (list, optional): Columns to downsample. Defaults to `None`, which uses the default columns for filtering.
-
-**Returns:**
-- `BaseDataFrame`: A new DataFrame with the downsampled data.
-
-**Behavior:**
-- Uses `apply_filter` with `method="decimate"` internally.
-- Updates the `start_idx` attribute to reflect the new sampling frequency.
-
-## Examples
-
-### Downsampling with `RawDataFrame`
+??? warning "Do not confuse with `DataFrame.filter`"
+    
+    It is easy to confuse `pandas.DataFrame.filter` with `poreflow.BaseDataFrame.apply_filter`. 
+    The former filters values in the columns or rows based on some argument, the later 
+    does signal processing on the voltage/current columns of the DataFrame.
 
 
+## Additional examples
 
-### Filtering with `EventsDataFrame`
+Depending on your data, you might want to always first downsample to a specific frequency, and 
+only then do further filtering or processing. This is often the case for high-frequency UTube data, 
+which generally is first downsampled to around 5 kHz. An example of doing so:
 
-```python
-import poreflow as pf
-
-# Load events data
-events_data = pf.EventsDataFrame.load("path/to/events_data.h5")
-
-# Apply a low-pass filter with a cutoff frequency of 1 kHz
-filtered_data = events_data.apply_filter(cutoff=1000, method="bessel4")
-
-# Plot the filtered data
-filtered_data.plot(y="i", x="abs")
+```python linenums="1"
+--8<-- "docs/features/filtering.py:block_3"
 ```
+<div class="result" markdown>
+```
+--8<-- "docs/features/filtering.txt:block_3"
+```
+</div>
 
-## Notes
+!!! info "DataFrame attributes"
 
-- **Default Columns**: By default, only the current (`pf.CURRENT_COL`) and voltage (`pf.VOLTAGE_COL`) columns are filtered or downsampled. Other columns are either truncated (for downsampling) or left unchanged (for filtering).
-- **Sampling Frequency**: The `sfreq` attribute is updated to reflect the new sampling frequency after downsampling.
-- **Filter Cutoff**: The `filter_cutoff` attribute is updated to reflect the cutoff frequency used in filtering.
+    The example above demonstrates the three attributes in `poreflow.BaseDataFrame` used to keep track
+    of filtering results.
 
-## References
-
-- [poreFlow Documentation](https://poreflow.readthedocs.io/)
-- [poreFlow GitHub Repository](https://github.com/poreflow/poreflow)
-- [scipy.signal.bessel](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.bessel.html)
-- [scipy.signal.filtfilt](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.filtfilt.html)
-- 
+    - `BaseDataFrame.sfreq_original` is set to the original sample rate of the file from which 
+        the dataframe is read. It is not changed by filtering/downsampling.
+    - `BaseDataFrame.sfreq` is the (downsampled) sample rate of the DataFrame.
+    - `BaseDataFrame.filter_cutoff` is `None` if the event is unfiltered and set to the cut-off 
+        frequency of the filter after filtering.
 
 
 [decimate]: https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.decimate.html

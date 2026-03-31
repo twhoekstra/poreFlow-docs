@@ -2262,7 +2262,7 @@ requires-dist = [
     { name = "pip", specifier = ">=26.0.1" },
     { name = "poreflow", specifier = ">=0.4.0" },
     { name = "pytest", specifier = ">=9.0.2" },
-    { name = "zensical", specifier = "==0.0.30" },
+    { name = "zensical", specifier = ">=0.0.30" },
 ]
 
 [[package]]

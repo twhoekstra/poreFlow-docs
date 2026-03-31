@@ -25,6 +25,18 @@ def test_block_2():
     print(f"Sample rate {raw.sfreq} filtered with a cutoff at to {raw.filter_cutoff}.")
     # --8<-- [end:block_2]
 
+def test_block_3():
+    # --8<-- [start:block_3]
+    with pf.File("utube_measurement.dat") as f:
+        raw = f.get_raw()
+
+    raw = raw.downsample(5000).apply_filter(1000)
+
+    print(f"Original sample rate: {raw.sfreq_original} Hz")
+    print(f"Downsampled to:       {raw.sfreq} Hz, ")
+    print(f"Filtered to:          {raw.filter_cutoff} Hz, ")
+    # --8<-- [end:block_3]
+
 
 if __name__ == "__main__":
     sys.exit(pytest.main(["-qq"]))
