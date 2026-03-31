@@ -63,12 +63,17 @@ extra_javascript = [
   "javascripts/mathjax.js",
   "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js",
 ]
+extra_css = ["stylesheets/extra.css"]
+
+[project.plugins.autorefs]
+enabled = true
 
 [project.plugins.mkdocstrings.handlers.python]
 inventories = ["https://docs.python.org/3/objects.inv"]
-paths = ["poreflow/src"]
+paths = ["src"]
 
 [project.plugins.mkdocstrings.handlers.python.options]
+paths = ["src"]
 docstring_style = "google"
 inherited_members = true
 show_source = false

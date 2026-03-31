@@ -21,7 +21,7 @@ my-project/
  └── measurement.dat 
 ```
 
-Then this `.dat` data file, can be opened using [`poreflow.File`][F]:
+Then this `.dat` data file, can be opened using [poreflow.File][]:
 
 ```python linenums="1"
 import poreflow as pf
@@ -40,7 +40,7 @@ my-project/
 ```
 
 This new system is fully backwards compatible with poreFlow 0.3.X, as annotation opening is managed under the 
-hood by [`poreflow.File`][F]. As a result, no changes in processing scripts are needed. Note that the annotations 
+hood by [poreflow.File][]. As a result, no changes in processing scripts are needed. Note that the annotations 
 system has many advantages for most users, to learn more, check out the 
 [Annotations][] feature page.
 
