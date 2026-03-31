@@ -31,6 +31,7 @@ nav = [
 #         ]}
      ]},
     {"Reference" = [
+        "reference/index.md",
         "reference/poreflow.md",
         "reference/events.md",
         "reference/steps.md",
