@@ -23,7 +23,7 @@ graph TD;
 
 ## Usage
 
-Interfacing between the data and annotation files is done automatically by [`poreflow.File`][F]. In the section below, 
+Interfacing between the data and annotation files is done automatically by [poreflow.File][]. In the section below, 
 you can find usage examples outlining how this works.
 
 ### Opening a data file for the first time
@@ -38,7 +38,7 @@ analysis results. Consider this simple project structure:
      └── measurement.dat 
     ```
 
-    Then this `.dat` data file, can be opened using [`poreflow.File`][F]:
+    Then this `.dat` data file, can be opened using [poreflow.File][]:
 
     ```python linenums="1"
     import poreflow as pf
@@ -56,7 +56,7 @@ analysis results. Consider this simple project structure:
      └── measurement.fast5 
     ```
 
-    Then this `.fast5` data file, can be opened using [`poreflow.File`][F]:
+    Then this `.fast5` data file, can be opened using [poreflow.File][]:
 
     ```python linenums="1"
     import poreflow as pf
@@ -117,7 +117,7 @@ with pf.File("measurement.fast5") as f:
 ### Storing annotations in a different directory
 
 Annotations can also be automatically created and read from in a separate directory. [HDF5 File]
-To do so, specify the `annotation_path` argument in [`poreflow.File`][F]. 
+To do so, specify the `annotation_path` argument in [poreflow.File][]. 
 
 ```title="Project structure"
 my-project/
@@ -138,7 +138,7 @@ with pf.File("measurement.fast5", annotation_path=annotations_dir) as f:
 
 ### Opening via an annotation file
 
-You can also open a data file by requesting using its annotation in [`poreflow.File`][F]. The annotation 
+You can also open a data file by requesting using its annotation in [poreflow.File][]. The annotation 
 stores its parent data file inside, allowing the file loader to automatically find and load the data file.
 
 ```title="Project structure"
@@ -206,7 +206,7 @@ using the annotation system by creating a unique annotation file per analysis:
     ```
 
     ??? info "Why `search_path`?"
-        The `search_path` parameter in [`poreflow.File`][F] specifies where to search for an annotation, and to create 
+        The `search_path` parameter in [poreflow.File][] specifies where to search for an annotation, and to create 
         an annotation in this folder if none is found. That is why this parameter is used for saving and loading 
         multiple annotations stored in different folders.
 
@@ -283,4 +283,3 @@ can be more readily deleted.
 have annotation files on your device only.
 
 [HDF5 File]: https://support.hdfgroup.org/documentation/hdf5/latest/_h5_d_m__u_g.html
-[F]: ../../reference/poreflow/#poreflow.File
