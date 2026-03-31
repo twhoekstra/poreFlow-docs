@@ -26,8 +26,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install .
 
-      - name: Convert notebooks
-        run: python examples/convert_and_add_to_docs.py
+      - name: Export test outputs
+        run: python scripts/export.py docs
 
       - name: Building documentation
         run: | 

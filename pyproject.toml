@@ -14,3 +14,7 @@ dependencies = [
     "typer>=0.24.1",
     "zensical>=0.0.30",
 ]
+
+[tool.pytest]
+python_files = ["*.py"]
+testpaths = ["docs"]
