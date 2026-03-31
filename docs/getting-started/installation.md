@@ -140,17 +140,11 @@ Poreflow can now be installed stand-alone using ``uv``
 uv add poreflow
 ```
 
-### Sequencing analysis script
 
-For processing the `.fast5` or `.dat` raw data files, check out the prepared jupyter notebook: [Processing script](https://gitlab.tudelft.nl/xiuqichen/poreFlow/-/blob/main/notebooks/ONT_processing.ipynb?ref_type=heads) ([⬇️Download](https://gitlab.tudelft.nl/xiuqichen/poreFlow/-/raw/main/notebooks/ONT_processing.ipynb?ref_type=heads&inline=false)).
+## Using poreFlow
 
-This workflow is explained in [Sequencing analysis](./typical-workflows.md#sequencing-analysis).
+The [next section](./typical-workflows.md) describes typical workflows with poreFlow.
 
-### I-V curve script
-
-For processing the I-V curve measurement, check out [I-V curve script](https://gitlab.tudelft.nl/xiuqichen/poreFlow/-/blob/main/notebooks/IV_curve.ipynb?ref_type=heads) ([⬇️Download](https://gitlab.tudelft.nl/xiuqichen/poreFlow/-/raw/main/notebooks/IV_curve.ipynb?ref_type=heads&inline=false)).
-
-This workflow is explained in [I-V curve analysis](./typical-workflows.md#i-v-curve-analysis).
 
 ## Upgrading poreFlow
 poreFlow can be upgraded by specifying the version in ``uv``. To find the latest version number, check out 
