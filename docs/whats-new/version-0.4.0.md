@@ -30,6 +30,9 @@ with pf.File("measurement.dat") as f: # (1)!
     f.find_events() # (2)!
 ```
 
+1.  A `.fast5` and annotation file is created automatically here.
+2.  Analysis results, such as events, are automatically stored in the annotations file.
+
 Processing results are stored in a separate file with the `annot.fast5` extension.
 
 ```title="Project structure (after opening)"
@@ -44,28 +47,71 @@ hood by [poreflow.File][]. As a result, no changes in processing scripts are nee
 system has many advantages for most users, to learn more, check out the 
 [Annotations][] feature page.
 
-### Parallel Processing
-Enhanced parallel processing capabilities for event and step detection, with improved efficiency and better handling of multiprocessing across different platforms.
+### Filtering improvements
+
+!!! info
+
+    For a complete description of the annotations system, check out: [Filtering][].
+
+Changes have been made to the downsampling and filtering workflows. poreFlow DataFrames can be downsampled and 
+filtered at any time using their methods:
+
+```python linenums="1"
+with pf.File("utube_measurement.dat") as f:
+    raw = f.get_raw()
+
+raw = raw.downsample(5000).apply_filter(1000) # (1)!
+
+print(f"Original sample rate: {raw.sfreq_original} Hz")
+print(f"Downsampled to:       {raw.sfreq} Hz, ")
+print(f"Filtered to:          {raw.filter_cutoff} Hz, ")
+```
+
+1. First downsample to 5 kHz using decimation, then filter with a 4^th^-order Bessel filter
+
+<div class="result" markdown>
+```
+Original sample rate: 50000.0 Hz
+Downsampled to:       5000.0 Hz, 
+Filtered to:          1000 Hz,
+```
+</div>
+
+This new system is *not* backwards compatible with poreFlow 0.3.X, so minor changes in processing scripts are needed. 
+To learn more about filtering and downsampling, check out the [Filtering][] feature page.
 
 ### Dashboard Improvements
 The dashboard has seen major improvements in settings management, UI refinements, and better handling of configuration files. New features include auto-scaling, better downsampling controls, and improved error handling.
 
 ## Migration Guide
 
-No migration needed! The system automatically:
+No migration needed is needed for the annotation system. 
+However, for changes may be needed in processing scripts due to changes in the filtering/downsampling methods. 
+This mainly concerns old scripts with downsampling in `poreflow.File.get_raw()` or `poreflow.File.get_event()`, for 
+example:
 
-1. Creates annotation files when opening existing data files
-2. Maintains backward compatibility with existing code
-3. Handles both `.fast5` and `.dat` files seamlessly
+```python linenums="1" title="Previous versions of poreFlow (0.3.X)"
+with pf.File("utube_measurement.dat") as f:
+    raw = f.get_raw(downsample=5000)
+
+raw = raw.downsample(5000)
+```
+
+Change such uses to the following:
+
+```python linenums="1" title="Updated code for this version of poreFlow (0.4.0)"
+with pf.File("utube_measurement.dat") as f:
+    raw = f.get_raw().downsample(5000)
+```
 
 ## Changelog
 
 ### Architecture & Core Changes
 - Separated annotations into their own file for better data management
 - Refactored `File` class into `DataFile` (raw data) and `File` (with annotations)
-- Improved parallel processing for event and step detection
 - Added pointer system for efficient data access in `DataFile`
-- Enhanced downsampling and filtering API
+- Improved parallel processing for event and step detection leveraging annotation system and pointers
+- Improved downsampling and filtering API
 - Added support for alternative annotation paths
 
 ### Dashboard & UI Improvements
@@ -75,22 +121,19 @@ No migration needed! The system automatically:
 - Enhanced error handling and user feedback
 - Added validation for configuration settings
 - Improved layout and button styles
-- Added display of raw sampling rate and processing frequencies
 
 ### Performance & Code Quality
 - Optimized multiprocessing for different platforms (Windows/Linux)
-- Improved file locking and I/O handling
+- Removed need for file locking and I/O handling
 - Enhanced downsampling with better handling of integer columns
 - Added better exception handling for event detection
 - Cleaned up and refactored tests for CI/CD
-- Improved logging and removed redundant print statements
 
 ### Bug Fixes
 - Fixed bug in event detection with `start_idx` handling
 - Fixed issues with channel numbering in open state fit datasets
-- Resolved problems with file locking on Windows
 - Fixed downsampling issues with integer columns
-- Corrected boundary trimming in event detection
+- Fixed issue with removal of exclusion of samples with incorrect voltages from events in event detection
 - Fixed configuration error handling in dashboard
 
 ### New Features
@@ -103,12 +146,12 @@ No migration needed! The system automatically:
 
 ### Documentation
 - Updated AGENTS.md with new features and usage information
-- Added deprecation notices for older functionality
 - Improved notebook examples
 
 ## Authors
 Thijn Hoekstra and Xiuqi Chen, see [Authors].
 
 [Annotations]: ../features/io/annotations.md
+[Filtering]: ../features/filtering.md
 [Authors]: ./../authors
 [F]: ../../reference/poreflow/#poreflow.File
