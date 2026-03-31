@@ -1,6 +1,6 @@
 # Version 0.4.0
 
-Release date: March 9, 2026
+Release date: March 31, 2026
 
 This release introduces major architectural changes to improve performance, flexibility, and usability. 
 Key changes include the introduction of "Annotation" files and an upgraded dashboard. 
@@ -81,7 +81,75 @@ This new system is *not* backwards compatible with poreFlow 0.3.X, so minor chan
 To learn more about filtering and downsampling, check out the [Filtering][] feature page.
 
 ### Dashboard Improvements
-The dashboard has seen major improvements in settings management, UI refinements, and better handling of configuration files. New features include auto-scaling, better downsampling controls, and improved error handling.
+The dashboard has seen UI refinements and better handling of configuration files. 
+
+
+#### Introducing configurations
+
+To keep all the configuration settings in one place, we have created a `poreflow.toml` file, which stores 
+all the settings for the poreFlow Dashboard. Besides the dashboard, this TOML is also useful in 
+Python scripts for building central configurations scheme.
+
+![Configuration manager](assets/0.4.0/config.gif)
+
+After loading a file, the Dashboard now shows richer information on the dataset, including the sample rate, 
+number of events, and number of steps. 
+
+When loading a file, poreFlow searches the folder of the data file for a configuration file called `poreflow.toml` and 
+loads this configuration. This configuration for the session is shown below the file input. 
+
+The "Default" badge indicates that no `poreflow.toml` in the same folder as the loaded data file. If a config file was 
+found, this will show "Configuration from folder".
+
+The configuration can be edited, and settings are used in the rest of the dashboard. 
+Each page also has a settings button (:lucide-settings:) which opens a settings window. 
+This window shows the sections of the configuration that are useful for that page.
+
+#### Saving a configuration
+
+![Saving a configuration](assets/0.4.0/save_config.gif)
+
+By clicking the save button (:lucide-save:), the configuration is saved to disk next to the file:
+
+```title="Project structure"
+my-project/
+ ├── measurement.fast5    
+ ├── measurement.annot.fast5    
+ └── poreflow.toml           <--- Saved here
+```
+
+!!! info "Coming soon..."
+    
+    We are working on a feature you can manually override which `.toml` file poreFlow Dashboard uses
+    as a configuration (so you can have multiple configurations). Stay tuned!
+
+
+#### Downloading a configuration
+
+![Downloading a configuration](assets/0.4.0/download_config.gif)
+
+A configuration can also be saved directly to the downloads folder using the download button (:lucide-download:).
+
+
+#### Event finding
+
+![Event finding](assets/0.4.0/events.gif)
+
+Events can now be detected directly in poreFlow Dashboard. When viewing a channel on the "Channels" page click :lucide-eye:/:lucide-eye-closed:
+to show/hide events. Events are shown in grey by default if available.
+
+To find events, click :lucide-search:, which starts the events finder using the configuration in the "Event Detection" 
+section of the configuration. 
+
+To remove events from the current channel whilst preserving other events, click :lucide-scissors:. To remove all 
+events, click :lucide-trash:.
+
+!!! tip "Tooltips"
+    Most features and settings now have a tooltip which is shown when hovering over that feature.
+
+!!! info "Coming soon..."
+    
+    Event filtering and step detection in poreFlow dash are coming soon. Stay tuned!
 
 ## Migration Guide
 
