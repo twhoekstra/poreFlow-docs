@@ -14,12 +14,13 @@ FAST5_FILE = assets / "ont_measurement.fast5"
 @pytest.fixture(autouse=True)
 def test_wrapper(request):
     # Setup: This runs BEFORE the test
-    print(f"\n--8<-- [start:{request.node.name}]")
+    name = request.node.name.replace("test_", "")
+    print(f"\n--8<-- [start:{name}]")
 
     yield
 
     # Teardown: This runs AFTER the test
-    print(f"--8<-- [end:{request.node.name}]\n")
+    print(f"--8<-- [end:{name}]\n")
 
 @pytest.fixture(autouse=True)
 def tmp_dir_loaded(monkeypatch, tmp_path):

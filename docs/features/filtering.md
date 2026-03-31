@@ -44,6 +44,8 @@ a large dataset. Downsampling to, say, 5 kHz plotting is a great way to improve 
 Under the hood, [`scipy.signal.decimate`][decimate] is used to downsample the signal, which applies an 
 anti-aliasing filter before downsampling.
 
+Downscaling is done using the `.downsample` method on poreFlow dataframe objects, like RawDataFrame or 
+EventDataFrame.
 
 ### Example
 ```python linenums="1"
@@ -53,19 +55,39 @@ anti-aliasing filter before downsampling.
 1. Get raw data for channel 0.
 2. Downsample to 2.5 kHz
 
+<div class="result" markdown>
+```
+--8<-- "docs/features/filtering.txt:block_1"
+```
+</div>
+
+
+By default, only the current and voltage columns processed with an anti-aliasing filter before downsampling.
 
 
 
+## Filtering
 
+filtered using a 4th-order Bessel filter.
 
+Typically  `BaseDataFrame.apply_filter`
 
-By default, only the current and voltage columns are filtered using a 4th-order Bessel filter.
-### Filtering
+### Example
+```python linenums="1"
+--8<-- "docs/features/filtering.py:block_2"
+```
 
+1. Filter with a filter with a cut-off frequency at 1000 Hz
+
+<div class="result" markdown>
+```
+--8<-- "docs/features/filtering.txt:block_2"
+```
+</div>
 
 ## Methods
 
-### `BaseDataFrame.apply_filter`
+
 
 Applies a filter to the specified columns of the DataFrame.
 
