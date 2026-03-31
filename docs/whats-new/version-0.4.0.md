@@ -42,7 +42,7 @@ my-project/
  └── measurement.annot.fast5  <-- Analysis results (read-write)
 ```
 
-This new system is fully backwards compatible with poreFlow 0.3.X, as annotation opening is managed under the 
+This new system is fully backward compatible with poreFlow 0.3.X, as annotation opening is managed under the 
 hood by [poreflow.File][]. As a result, no changes in processing scripts are needed. Note that the annotations 
 system has many advantages for most users, to learn more, check out the 
 [Annotations][] feature page.
@@ -77,7 +77,7 @@ Filtered to:          1000 Hz,
 ```
 </div>
 
-This new system is *not* backwards compatible with poreFlow 0.3.X, so minor changes in processing scripts are needed. 
+This new system is *not* backward compatible with poreFlow 0.3.X, so minor changes in processing scripts are needed. 
 To learn more about filtering and downsampling, check out the [Filtering][] feature page.
 
 ### Dashboard Improvements
@@ -104,6 +104,8 @@ found, this will show "Configuration from folder".
 The configuration can be edited, and settings are used in the rest of the dashboard. 
 Each page also has a settings button (:lucide-settings:) which opens a settings window. 
 This window shows the sections of the configuration that are useful for that page.
+
+For an example of a default `poreflow.toml`, check out the [Configurations] feature page.
 
 #### Saving a configuration
 
@@ -153,8 +155,7 @@ events, click :lucide-trash:.
 
 ## Migration Guide
 
-No migration needed is needed for the annotation system. 
-However, for changes may be needed in processing scripts due to changes in the filtering/downsampling methods. 
+No migration is needed for the annotation system. However, changes may be needed in processing scripts due to changes in the filtering/downsampling methods. 
 This mainly concerns old scripts with downsampling in `poreflow.File.get_raw()` or `poreflow.File.get_event()`, for 
 example:
 
@@ -181,6 +182,8 @@ with pf.File("utube_measurement.dat") as f:
 - Improved parallel processing for event and step detection leveraging annotation system and pointers
 - Improved downsampling and filtering API
 - Added support for alternative annotation paths
+- Event boundary trimming is now supports removing a different amount of time before and after detected events
+- Event boundary trim now takes trim sizes in milliseconds rather than samples
 
 ### Dashboard & UI Improvements
 - Refactored settings system with TOML configuration
@@ -221,5 +224,6 @@ Thijn Hoekstra and Xiuqi Chen, see [Authors].
 
 [Annotations]: ../features/io/annotations.md
 [Filtering]: ../features/filtering.md
+[Configurations]: ../features/io/configurations.md
 [Authors]: ./../authors
 [F]: ../../reference/poreflow/#poreflow.File
