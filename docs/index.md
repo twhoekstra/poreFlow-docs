@@ -1,3 +1,10 @@
+---
+template: "home_template.html"
+hide:
+    - navigation
+    - toc
+---
+
 # Welcome to poreFlow
 
 PoreFlow is a fast, simple, and flexible set of tools for analysing raw nanopore sequencing data, 
@@ -5,7 +12,7 @@ intended for use for research in the Cees Dekker lab.
 
 ## Quick links
 
-<div class="grid cards" markdown>
+<div class="grid cards double" markdown >
 
 -   :lucide-download:{ .lg .middle } __Install__
 

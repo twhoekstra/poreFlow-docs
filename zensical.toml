@@ -15,7 +15,7 @@ nav = [
         "getting-started/typical-workflows.md",
     ]},
      {"Features" =  [
-         {"Input/Output" = [
+         {"File I/O" = [
              "features/io/annotations.md",
              "features/io/configurations.md",
          ]},
@@ -33,6 +33,25 @@ nav = [
      ]},
     {"Reference" = [
         "reference/index.md",
+        {"Most-used classes" = [
+             "reference/most-used-classes/poreflow.File.md",
+             "reference/most-used-classes/poreflow.RawDataFrame.md",
+             "reference/most-used-classes/poreflow.EventsDataFrame.md",
+             "reference/most-used-classes/poreflow.EventDataFrame.md",
+             "reference/most-used-classes/poreflow.StepsDataFrame.md",
+         ]},
+#        {"File I/O" = [
+#             "reference/io/poreflow.io.labview.md",
+#             "reference/io/poreflow.io.annotations.md",
+#             "reference/io/poreflow.io.pointer.md",
+#         ]},
+        {"Events" = [
+             "reference/events/poreflow.events.open_state.md",
+             "reference/events/poreflow.events.voltage_state.md",
+             "reference/events/poreflow.events.detection.md",
+             "reference/events/poreflow.events.selection.md",
+         ]},
+
         "reference/poreflow.md",
         "reference/events.md",
         "reference/steps.md",
@@ -64,7 +83,7 @@ extra_javascript = [
   "javascripts/mathjax.js",
   "https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js",
 ]
-extra_css = ["stylesheets/extra.css"]
+extra_css = ["assets/stylesheets/extra.css"]
 
 [project.plugins.autorefs]
 enabled = true
@@ -78,6 +97,12 @@ paths = ["src"]
 docstring_style = "google"
 inherited_members = true
 show_source = false
+show_submodules = false
+summary = false
+show_labels = true
+members_order = "alphabetical"
+show_root_heading = true
+heading_level = 1
 
 
 
@@ -121,6 +146,7 @@ features = [
     "content.code.copy",
     "content.code.annotate",
 ]
+custom_dir = "overrides"
 
 [[project.extra.social]]
 icon = "fontawesome/brands/gitlab"
