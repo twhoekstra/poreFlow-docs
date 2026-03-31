@@ -11,5 +11,6 @@ dependencies = [
     "pip>=26.0.1",
     "poreflow>=0.4.0",
     "pytest>=9.0.2",
+    "typer>=0.24.1",
     "zensical>=0.0.30",
 ]

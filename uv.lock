@@ -2251,6 +2251,7 @@ dependencies = [
     { name = "pip" },
     { name = "poreflow" },
     { name = "pytest" },
+    { name = "typer" },
     { name = "zensical" },
 ]
 
@@ -2262,6 +2263,7 @@ requires-dist = [
     { name = "pip", specifier = ">=26.0.1" },
     { name = "poreflow", specifier = ">=0.4.0" },
     { name = "pytest", specifier = ">=9.0.2" },
+    { name = "typer", specifier = ">=0.24.1" },
     { name = "zensical", specifier = ">=0.0.30" },
 ]
 
