@@ -19,26 +19,66 @@
 }
 
 .hero {
-  position: relative;
-  margin-top: -50vh; /* Center vertically relative to viewport */
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
   z-index: 10;
   font-size: 1rem;
   pointer-events: none; /* Allow clicks to pass through hero container */
+  max-width: 400px;
 }
 
-.hero h2, .hero p {
+.hero h2 {
     pointer-events: auto; /* Make text elements clickable/selectable */
     user-select: text; /* Allow text selection */
-    background-color: rgba(255, 255, 255, 0.1); /* Slight background for better visibility */
-    padding: 0.5rem 1rem;
+    font-size: 3rem; /* Larger font size for poreFlow */
+    margin: 0 0 1rem 0;
+    text-align: left;
+}
+
+.hero p {
+    pointer-events: auto; /* Make text elements clickable/selectable */
+    user-select: text; /* Allow text selection */
+    /*background-color: rgba(255, 255, 255, 0.1); !* Slight background for better visibility *!*/
+    /*padding: 1rem;*/
     border-radius: 4px;
-    margin: 0.5rem 0;
+    margin: 0 0 1.5rem 0;
+    text-align: left;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  pointer-events: auto;
+}
+
+.hero-button {
+  pointer-events: auto;
+  padding: 0.75rem 1.5rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-button-primary {
+  /*background-color: rgba(84, 51, 145, 0.9); !* poreFlow purple *!*/
+  color: white;
+  border-color: rgba(84, 51, 145, 0.9);
+}
+
+.hero-button-primary:hover {
+  background-color: rgba(84, 51, 145, 1.0);
+}
+
+.hero-button-secondary {
+  background-color: rgba(10, 10, 10, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-button-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* Force header, navbar, and sidebar to be above the render */
