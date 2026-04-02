@@ -5,7 +5,10 @@ from typing import Annotated
 
 import typer
 
-def export_test_outputs(
+app = typer.Typer()
+
+@app.callback(invoke_without_command=True)
+def main(
         docs_folder: Annotated[str, typer.Argument(help="Folder in which to search for Python files.")] = "../docs"):
     """
     Run all test files in `docs_folder`, capture print outputs per test case,
@@ -43,4 +46,4 @@ def export_test_outputs(
         print(f"Finished writing to {output_file}")
 
 if __name__ == "__main__":
-    typer.run(export_test_outputs)
+    main()

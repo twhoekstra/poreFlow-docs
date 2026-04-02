@@ -18,3 +18,9 @@ dependencies = [
 [tool.pytest]
 python_files = ["*.py"]
 testpaths = ["docs"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[project.scripts]
+export_test_outputs = "poreflow_docs.export:app"
