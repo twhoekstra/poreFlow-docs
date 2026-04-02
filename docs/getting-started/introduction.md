@@ -27,8 +27,8 @@ poreFlow provides tools in two categories:
 
 </div>
 
-[python section]: #python-module
-[gui section]: #graphical-tools
+[python section]: ../reference
+[gui section]: ../features/dashboard
 
 
 ## Python Module
