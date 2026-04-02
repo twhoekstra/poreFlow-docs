@@ -50,6 +50,8 @@
             renderer.setPixelRatio( container.devicePixelRatio );
             renderer.setSize(container.clientWidth, container.clientHeight);
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Softer shadows
             container.appendChild(renderer.domElement);
 
             const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
@@ -61,11 +63,11 @@
             if (colorScheme === 'slate') {
                 scene.background = new THREE.Color(0x000000); // Dark background for slate
                 scene.fog = new THREE.Fog( 0x000000, 6, 12 );
-                ground_mat = new THREE.MeshPhongMaterial( { color: 0x111111, depthWrite: false } )
+                ground_mat = new THREE.MeshPhongMaterial( { color: 0x111111 } )
             } else {
                 scene.background = new THREE.Color(0xFFFFFF); // Light background for default
                 scene.fog = new THREE.Fog( 0xFFFFFF, 6, 12 );
-                ground_mat = new THREE.MeshPhongMaterial( { color: 0xbbbbbb, depthWrite: false } )
+                ground_mat = new THREE.MeshPhongMaterial( { color: 0xbbbbbb } )
             }
             // scene.background = new THREE.Color(0xFFFFFF);
             // scene.environment = pmremGenerator.fromScene( new RoomEnvironment(), 0.04 ).texture;
@@ -79,22 +81,35 @@
             const directionalLight = new THREE.DirectionalLight( 0xffffff, 3 );
             directionalLight.position.set( 0, 20, 10 );
             directionalLight.castShadow = true;
-            directionalLight.shadow.camera.top = 2;
-            directionalLight.shadow.camera.bottom = - 2;
-            directionalLight.shadow.camera.left = - 2;
-            directionalLight.shadow.camera.right = 2;
+            
+            // Configure shadow map
+            directionalLight.shadow.mapSize.width = 2048;
+            directionalLight.shadow.mapSize.height = 2048;
+            directionalLight.shadow.camera.near = 0.5;
+            directionalLight.shadow.camera.far = 50;
+            directionalLight.shadow.camera.top = 10;
+            directionalLight.shadow.camera.bottom = -10;
+            directionalLight.shadow.camera.left = -10;
+            directionalLight.shadow.camera.right = 10;
+            
+            // This is critical - update the shadow camera projection matrix
+            directionalLight.shadow.camera.updateProjectionMatrix();
+            
             scene.add( directionalLight );
 
             // ground
 
             const ground = new THREE.Mesh( new THREE.PlaneGeometry( 40, 40 ), ground_mat);
             ground.rotation.x = - Math.PI / 2;
+            ground.position.y = -0.5; // Lower the floor by 0.5 units
             ground.receiveShadow = true;
             scene.add( ground );
 
             const grid = new THREE.GridHelper( 40, 20, 0x000000, 0x000000 );
             grid.material.opacity = 0.2;
             grid.material.transparent = true;
+            grid.position.y = -0.499; // Lower the grid to match the floor
+            // grid.receiveShadow = true;
             scene.add( grid );
 
             let model;
@@ -106,13 +121,16 @@
                     const material = new THREE.MeshStandardMaterial({
                         color: 0x543391,
                         roughness: 0.5,
-                        metalness: 0.5
+                        metalness: 0.5,
+                        flatShading: false
                     });
                     object.traverse((child) => {
                         if (child instanceof THREE.Mesh) {
                             child.material = material;
+                            child.castShadow = true; // Set castShadow on each mesh
                         }
                     });
+                    object.castShadow = true; // Also set on the parent object
                     model = object;
                     model.position.y = 0.7;
                     scene.add(model);
