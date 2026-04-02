@@ -52,6 +52,15 @@ nav = [
              "reference/events/poreflow.events.selection.md",
          ]},
 
+        {"Steps" = [
+             "reference/steps/poreflow.steps.changepoint.md",
+             "reference/steps/poreflow.steps.cpic.md",
+             "reference/steps/poreflow.steps.metrics.md",
+             "reference/steps/poreflow.steps.predict.md",
+             "reference/steps/poreflow.steps.sequence.md",
+        ]},
+
+
         "reference/poreflow.md",
         "reference/events.md",
         "reference/steps.md",
