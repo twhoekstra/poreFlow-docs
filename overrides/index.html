@@ -132,11 +132,17 @@
             const controls = new OrbitControls(camera, renderer.domElement);
             controls.enableDamping = true;
             controls.dampingFactor = 0.05;
-            controls.enableZoom = false;
+            // controls.enableZoom = false;
             
+            // Prevent orbit from going through the floor
+            // controls.minPolarAngle = Math.PI / 4; // 45 degrees (prevents looking too far down)
+            controls.maxPolarAngle = Math.PI * 0.5;  // 120 degrees (prevents looking too far up)
+            controls.minDistance = 1;
+            controls.maxDistance = 3;
+
             // Set orbit point based on screen width
             if (window.innerWidth <= 768) {
-                controls.target.set(0, 0.15, 0); // Mobile: higher orbit point
+                controls.target.set(0, 0.10, 0); // Mobile: higher orbit point
             } else {
                 controls.target.set(0, 0.5, 0); // Desktop: normal orbit point
             }
@@ -162,7 +168,7 @@
                 
                 // Update orbit point based on screen width
                 if (window.innerWidth <= 768) {
-                    controls.target.set(0, 0.15, 0); // Mobile: higher orbit point
+                    controls.target.set(0, 0.1, 0); // Mobile: higher orbit point
                 } else {
                     controls.target.set(0, 0.5, 0); // Desktop: normal orbit point
                 }
