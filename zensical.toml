@@ -11,6 +11,7 @@ nav = [
     {"Getting Started" = [
         "getting-started/introduction.md",
         "getting-started/installation.md",
+        "getting-started/nanopore-sequencing.md",
         # "getting-started/overview.md",
         "getting-started/typical-workflows.md",
     ]},
@@ -159,6 +160,7 @@ features = [
     "navigation.footer",
     "content.code.copy",
     "content.code.annotate",
+    "content.footnote.tooltips",
 ]
 custom_dir = "overrides"
 
