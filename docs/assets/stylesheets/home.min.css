@@ -28,6 +28,36 @@
   max-width: 400px;
 }
 
+/* Responsive hero text for mobile */
+@media (max-width: 768px) {
+  .hero {
+    bottom: 1rem;
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+    width: auto;
+  }
+
+  .hero h2 {
+    font-size: 2rem; /* Smaller on mobile */
+  }
+
+  .hero p {
+    font-size: 0.9rem; /* Slightly smaller text */
+    padding: 0.75rem;
+  }
+
+  .hero-buttons {
+    flex-direction: column; /* Stack buttons vertically on mobile */
+    gap: 0.5rem;
+  }
+
+  .hero-button {
+    width: 100%; /* Full width buttons on mobile */
+    padding: 0.6rem 1rem;
+  }
+}
+
 .hero h2 {
     pointer-events: auto; /* Make text elements clickable/selectable */
     user-select: text; /* Allow text selection */
