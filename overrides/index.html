@@ -74,13 +74,14 @@
 
 
             // Add lights
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
             ambientLight.position.set( 0, 20, 0 );
             scene.add(ambientLight);
 
-            const directionalLight = new THREE.DirectionalLight( 0xffffff, 3 );
+            const directionalLight = new THREE.DirectionalLight( 0xffffff, 1.4 );
             directionalLight.position.set( 0, 20, 10 );
             directionalLight.castShadow = true;
+
             
             // Configure shadow map
             directionalLight.shadow.mapSize.width = 2048;
