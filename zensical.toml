@@ -59,11 +59,16 @@ nav = [
              "reference/steps/poreflow.steps.predict.md",
              "reference/steps/poreflow.steps.sequence.md",
         ]},
-
-
-        "reference/poreflow.md",
-        "reference/events.md",
-        "reference/steps.md",
+        {"General" = [
+             "reference/general/poreflow.constants.md",
+             "reference/general/poreflow.utils.md",
+        ]},
+        {"Visualisation" = [
+             "reference/visualisation/poreflow.plots.md",
+        ]},
+        {"Parallel Processing" = [
+             "reference/parallel/poreflow.parallel.md",
+        ]},
     ]},
     {"What's New" = [
         "whats-new/index.md",
@@ -148,7 +153,7 @@ logo = "lucide/hexagon"
 favicon = "assets/favicon.ico"
 features = [
     "navigation.indexes",
-    "navigation.instant",
+#    "navigation.instant",
     "navigation.tabs",
     "navigation.path",
     "navigation.footer",
