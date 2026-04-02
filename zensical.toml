@@ -16,6 +16,10 @@ nav = [
         "getting-started/typical-workflows.md",
     ]},
      {"Features" =  [
+         {"Dashboard" = [
+             "features/dashboard/index.md",
+#             "features/dashboard/index.md",
+         ]},
          {"File I/O" = [
              "features/io/annotations.md",
              "features/io/configurations.md",
