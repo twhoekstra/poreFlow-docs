@@ -11,8 +11,8 @@ nav = [
     {"Getting Started" = [
         "getting-started/introduction.md",
         "getting-started/installation.md",
-        "getting-started/nanopore-sequencing.md",
-        # "getting-started/overview.md",
+#        "getting-started/proteomics.md",
+#        "getting-started/nanopore-sequencing.md",
         "getting-started/typical-workflows.md",
     ]},
      {"Features" =  [
@@ -45,11 +45,11 @@ nav = [
              "reference/most-used-classes/poreflow.EventDataFrame.md",
              "reference/most-used-classes/poreflow.StepsDataFrame.md",
          ]},
-#        {"File I/O" = [
-#             "reference/io/poreflow.io.labview.md",
-#             "reference/io/poreflow.io.annotations.md",
-#             "reference/io/poreflow.io.pointer.md",
-#         ]},
+        {"File I/O" = [
+             "reference/io/poreflow.io.labview.md",
+             "reference/io/poreflow.io.annotations.md",
+             "reference/io/poreflow.io.pointer.md",
+         ]},
         {"Events" = [
              "reference/events/poreflow.events.open_state.md",
              "reference/events/poreflow.events.voltage_state.md",
@@ -81,6 +81,7 @@ nav = [
         "whats-new/version-0.3.4.md",
         "whats-new/version-0.3.5.md",
         "whats-new/version-0.4.0.md",
+        "whats-new/version-0.4.1.md",
     ]},
     {"Developers" = [
         "developers/introduction.md",
@@ -120,8 +121,8 @@ show_submodules = false
 summary = false
 show_labels = true
 members_order = "alphabetical"
-show_root_heading = true
-heading_level = 1
+show_root_heading = false
+heading_level = 2
 
 
 
