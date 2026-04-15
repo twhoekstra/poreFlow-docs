@@ -29,7 +29,22 @@ cd poreFlow
 ```
 
 ## Install dependencies and module
-To install, simply run:
+
+For the build environment:
+
+=== ":fontawesome-brands-windows: Windows"
+    !!! note ""
+        Download [Microsoft C++ Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/). Run the installer and select "Desktop development with C++" workload. Make sure these components are checked:
+
+        - MSVC v143 (or latest) C++ build tools
+        - Windows SDK
+        - C++ CMake tools for Windows
+
+=== ":material-linux: Linux"
+    !!! note ""
+        Install the python `dev` package, such as `python3-dev` to include the header files and static libraries.
+
+To install poreflow, now simply run:
 ```shell linenums="3"
 uv sync
 ```
