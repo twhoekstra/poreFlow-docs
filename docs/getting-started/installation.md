@@ -67,19 +67,21 @@ needed for your use case. Install `uv` by following the [installation instructio
 We recommend installing in a [virtual environment][Python venv] which isolates the 
 packages used in a project from the overall Python installation. 
 
-??? tip "About virtual environments"
+!!! tip "About virtual environments"
     
     Typically, this virtual 
     environment is created in the folder of your project:
     
     ```
     username
-    └─ my-project
-        ├─  .venv
-        │     └─ # Packages go here
-        ├─  README.md
-        ├─  my-code.py
-        └─  my-notebook.ipynb
+    └─ ...
+        └─ my-project # Your project folder
+            ├─  .venv
+            │     └─ # Packages go here
+            ├─  README.md
+            ├─  my-data.dat
+            ├─  my-code.py
+            └─  my-notebook.ipynb
     ```
     
     To create a virtual environment, make sure your working directory is set to 
@@ -99,15 +101,15 @@ packages used in a project from the overall Python installation.
 [Activate-venv]: #activating-the-virtual-environment
 
 ```shell linenums="1" title="Initializing a project and creating a virtual environment"
-uv init --python 3.11
+uv init --python 3.13
 uv venv 
 ```
 
-!!! warning "WIP, supported Python versions"
+??? tip "Specifying Python versions"
 
-    poreFlow has been released on PyPi, but for now we are only 
-    creating pre-built binaries for Python 3.11. 
-    Versions for python 3.11+ coming soon!
+    poreflow currently supports Python version 3.11-3.13. You might want
+    to specify which version you would like to use. You can do this by chaning the
+    version number in the command above.
 
 
 ## Activating the virtual environment
