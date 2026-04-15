@@ -5,6 +5,25 @@ Release date: April 15, 2026
 This release introduces significant improvements to the poreFlow Dashboard, 
 voltage plotting capabilities, and performance optimizations.
 
+!!! warning
+
+    This version depends on [`tsdownsample`][tsd], which does yet
+    have a built version for Python 3.14. This means that 
+    poreflow 0.4.1 only supports Python versions 3.11 to 3.13.
+    
+    If you are currently running Python 3.14, we  recommend installing 
+    poreflow in a fresh virtual environment. Create the virtual environment 
+    in your using: 
+
+    ```shell
+    uv venv --python 3.13
+    ```
+
+    For more information, check out the [Install][] page.
+
+[tsd]: https://github.com/predict-idlab/tsdownsample
+[Install]: ../getting-started/installation/#creating-a-virtual-environment
+
 ## Highlights
 
 ### Voltage Visualization
