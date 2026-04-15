@@ -6,6 +6,7 @@
 - [Version 0.3.5](version-0.3.5.md)
 - [Version 0.4.0](version-0.4.0.md)
 - [Version 0.4.1](version-0.4.1.md)
+- [Version 0.4.2](version-0.4.2.md)
 
 !!! info "How to upgrade poreFlow"
     Check out the [Installation Page](../getting-started/installation/#upgrading-poreflow).
