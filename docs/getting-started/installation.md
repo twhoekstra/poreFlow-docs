@@ -152,7 +152,12 @@ The [Typical workflows](./typical-workflows.md) describes typical workflows with
 poreFlow can be upgraded by specifying the version in ``uv``. To find the latest version number, check out 
 poreFlow on [PyPI][poreflow PyPI].
 ```shell linenums="3" title="Upgrading poreFlow"
-uv add "poreflow>=0.3.5"
+uv add "poreflow>=0.4.1"
+```
+
+To find out which version of poreFlow is installed on your machine, you can run:
+```shell title="Showing poreFlow version"
+poreflow --version
 ```
 
 ## Developer install
