@@ -162,11 +162,13 @@ features = [
     "navigation.indexes",
 #    "navigation.instant",
     "navigation.tabs",
+    "navigation.expand",
     "navigation.path",
     "navigation.footer",
     "content.code.copy",
     "content.code.annotate",
     "content.footnote.tooltips",
+    "project.markdown_extensions.tables",
 ]
 custom_dir = "overrides"
 
@@ -218,6 +220,7 @@ smart_enable = "all"
 anchor_linenums = true
 line_spans = "__span"
 pygments_lang_class = true
+default_lang = "python"
 
 [project.markdown_extensions.pymdownx.inlinehilite]
 

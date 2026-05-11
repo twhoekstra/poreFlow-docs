@@ -9,6 +9,7 @@ assets = Path(__file__).parents[1] / "assets"
 
 DAT_FILE = assets / "utube_measurement.dat"
 FAST5_FILE = assets / "ont_measurement.fast5"
+CONF_FILE = assets / "poreflow.toml"
 
 
 @pytest.fixture(autouse=True)
@@ -27,6 +28,7 @@ def tmp_dir_loaded(monkeypatch, tmp_path):
 
     # Copy the file into the temp directory
     shutil.copy(DAT_FILE, tmp_path / DAT_FILE.name)
+    shutil.copy(FAST5_FILE, tmp_path / FAST5_FILE.name)
     shutil.copy(FAST5_FILE, tmp_path / FAST5_FILE.name)
 
     # Change the working directory for this test

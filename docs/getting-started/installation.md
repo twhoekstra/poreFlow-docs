@@ -145,7 +145,7 @@ uv add poreflow
 
 ## Using poreFlow
 
-The [next section](./typical-workflows.md) describes typical workflows with poreFlow.
+The [Typical workflows](./typical-workflows.md) describes typical workflows with poreFlow.
 
 
 ## Upgrading poreFlow

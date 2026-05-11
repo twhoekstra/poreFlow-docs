@@ -56,7 +56,7 @@ EventDataFrame.
 2. Downsample to 2.5 kHz
 
 <div class="result" markdown>
-```
+```text
 --8<-- "docs/features/filtering.txt:block_1"
 ```
 </div>
@@ -80,7 +80,7 @@ EventDataFrame.
 1. Filter with a filter with a cut-off frequency at 1000 Hz
 
 <div class="result" markdown>
-```
+```text
 --8<-- "docs/features/filtering.txt:block_2"
 ```
 </div>
@@ -106,7 +106,7 @@ which generally is first downsampled to around 5 kHz. An example of doing so:
 --8<-- "docs/features/filtering.py:block_3"
 ```
 <div class="result" markdown>
-```
+```text
 --8<-- "docs/features/filtering.txt:block_3"
 ```
 </div>

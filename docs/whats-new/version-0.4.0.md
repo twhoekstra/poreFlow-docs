@@ -70,7 +70,7 @@ print(f"Filtered to:          {raw.filter_cutoff} Hz, ")
 1. First downsample to 5 kHz using decimation, then filter with a 4^th^-order Bessel filter
 
 <div class="result" markdown>
-```
+```text
 Original sample rate: 50000.0 Hz
 Downsampled to:       5000.0 Hz, 
 Filtered to:          1000 Hz,
